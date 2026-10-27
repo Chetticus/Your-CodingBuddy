@@ -22,14 +22,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     publicFetch<{ items: Category[] }>("/categories"),
   ]);
 
-  const staticPages = ["", "/courses", "/workshop", "/about", "/contact"].map(
-    (path) => ({
-      url: `${SITE_URL}${path}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: path === "" ? 1 : 0.7,
-    }),
-  );
+  const staticPages = [
+    "",
+    "/courses",
+    "/workshop",
+    "/trial/books",
+    "/about",
+    "/contact",
+  ].map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: path === "" ? 1 : 0.7,
+  }));
 
   return [
     ...staticPages,

@@ -7,6 +7,7 @@ import type { EnrollmentItem } from "@/lib/learning";
 import { whoAmI } from "@/lib/viewer";
 import { buttonClass } from "@/components/ui/button";
 import { Alert } from "@/components/ui/feedback";
+import { projectCourse } from "@/lib/project-courses";
 
 type Audience = "unknown" | "guest" | "signed-in" | "enrolled" | "started";
 
@@ -41,8 +42,10 @@ export function EnrollCta({
   priceVnd: number;
   archived: boolean;
 }) {
+  const project = projectCourse(slug);
   const [audience, setAudience] = useState<Audience>("unknown");
   useEffect(() => {
+    if (project?.publicTrial || project?.availability === "planned") return;
     let active = true;
     audienceOf(courseId).then((result) => {
       if (active) setAudience(result);
@@ -50,7 +53,42 @@ export function EnrollCta({
     return () => {
       active = false;
     };
-  }, [courseId]);
+  }, [courseId, project]);
+
+  if (project?.publicTrial)
+    return (
+      <div className="grid gap-3">
+        <Link
+          href="/trial/books"
+          className={buttonClass("accent", "lg", "w-full")}
+        >
+          <UiText value="Học thử miễn phí ngay" en="Start the free trial" />
+        </Link>
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          <UiText
+            value="Xem đủ 4 video và bài đọc, không cần tài khoản."
+            en="Watch all four videos and read the notes without an account."
+          />
+        </p>
+      </div>
+    );
+  if (project?.availability === "planned")
+    return (
+      <div className="grid gap-3">
+        <Link
+          href={`/checkout/${slug}`}
+          className={buttonClass("outline", "lg", "w-full")}
+        >
+          <UiText value="Hỏi Nam về dự án" en="Ask Nam about this project" />
+        </Link>
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          <UiText
+            value="Đang xây dựng nội dung. Chưa mở đăng ký học; học phí được niêm yết để bạn tham khảo."
+            en="Lessons are in preparation. Enrollment is not open yet; the listed fee is for planning."
+          />
+        </p>
+      </div>
+    );
 
   if (audience === "enrolled" || audience === "started")
     return (

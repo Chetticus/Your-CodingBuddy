@@ -26,221 +26,538 @@
     "section": "Từ danh sách sách đến công cụ dùng được",
     "lessons": [
       {
-        "title": "01 · Mô tả một cuốn sách bằng dữ liệu",
-        "file": "books-01.md"
+        "title": "01 · Bắt đầu dự án tủ sách chia sẻ",
+        "file": "books-01.md",
+        "video": "/videos/books/lesson-01.mp4",
+        "durationSeconds": 562
       },
       {
         "title": "02 · Tìm sách và xử lý lượt mượn",
-        "file": "books-02.md"
+        "file": "books-02.md",
+        "video": "/videos/books/lesson-02.mp4",
+        "durationSeconds": 783
       },
       {
-        "title": "03 · Lưu dữ liệu, thử sai và cải thiện",
-        "file": "books-03.md"
+        "title": "03 · Lưu và đọc lại dữ liệu",
+        "file": "books-03.md",
+        "video": "/videos/books/lesson-03.mp4",
+        "durationSeconds": 581
+      },
+      {
+        "title": "04 · Kiểm thử và hoàn thiện dự án",
+        "file": "books-04.md",
+        "video": "/videos/books/lesson-04.mp4",
+        "durationSeconds": 196
       }
     ],
-    "downloads": [
-      "book-sharing.py"
-    ],
-    "kind": "project"
+    "downloads": ["book-sharing.py"],
+    "kind": "project",
+    "priceVnd": 0,
+    "availability": "available",
+    "publicTrial": true,
+    "level": "BEGINNER",
+    "symbol": "{py}",
+    "delivery": {
+      "vi": "4 video hướng dẫn, bài đọc và mã nguồn của dự án tủ sách. Học miễn phí, không cần tài khoản.",
+      "en": "Four teaching videos, written notes, and source code for the book-sharing project. Free, with no account required."
+    }
   },
   {
-    "slug": "web-huong-dan-ky-nang-so",
+    "slug": "python-tim-do-that-lac",
     "title": {
-      "vi": "Web: hướng dẫn kỹ năng số dễ hiểu",
-      "en": "Web: a digital-skills guide people can follow"
+      "vi": "Python: Trả đồ thất lạc về đúng chủ",
+      "en": "Python: return lost items to their owners"
     },
     "subtitle": {
-      "vi": "Làm một trang hướng dẫn kiểm tra đường dẫn đáng ngờ. Dùng HTML, CSS và phản hồi của người đọc để viết cho rõ ràng.",
-      "en": "Build a guide to checking suspicious links. Use HTML, CSS, and reader feedback to make the steps clear."
+      "vi": "Làm sổ đồ thất lạc cho lớp: ghi nhận đồ vật, lọc theo đặc điểm và theo dõi việc trả lại.",
+      "en": "Build a classroom lost-and-found register: log items, filter their features, and track returns."
     },
-    "categoryName": "Lập trình web",
-    "categorySlug": "lap-trinh-web",
-    "theme": "lime",
-    "coverLabel": "HTML + CSS / Dự án thực tế",
-    "outcomes": [
-      "Sắp xếp nội dung bằng HTML có ngữ nghĩa",
-      "Viết CSS dễ đọc trên điện thoại và bàn phím",
-      "Kiểm tra hướng dẫn với người đọc và sửa một điểm khó hiểu"
-    ],
-    "requirements": [
-      "Máy tính có trình duyệt và trình soạn thảo văn bản",
-      "Không cần biết lập trình trước; mở file HTML để chạy"
-    ],
-    "section": "Một trang nhỏ, một việc làm rõ ràng",
-    "lessons": [
-      {
-        "title": "01 · Chọn một việc và viết các bước",
-        "file": "guide-01.md"
-      },
-      {
-        "title": "02 · Tạo trang bằng HTML và CSS",
-        "file": "guide-02.md"
-      },
-      {
-        "title": "03 · Thử trên điện thoại và sửa theo phản hồi",
-        "file": "guide-03.md"
-      }
-    ],
-    "downloads": [
-      "digital-skills-guide.html"
-    ],
-    "kind": "project"
-  },
-  {
-    "slug": "python-nhat-ky-lang-phi-thuc-pham",
-    "title": {
-      "vi": "Python: đọc một nhật ký lãng phí thực phẩm",
-      "en": "Python: make sense of a food-waste log"
-    },
-    "subtitle": {
-      "vi": "Đọc dữ liệu CSV, cộng khối lượng theo ngày và tìm câu hỏi đáng thử tiếp. Bắt đầu từ số liệu mẫu, không vội kết luận.",
-      "en": "Read a CSV, total the waste by day, and find a question worth testing next. Start with sample data and avoid jumping to conclusions."
-    },
-    "categoryName": "Python & dữ liệu",
-    "categorySlug": "du-lieu-va-ai",
-    "theme": "coral",
-    "coverLabel": "Python + CSV / Dự án thực tế",
-    "outcomes": [
-      "Đọc CSV bằng thư viện chuẩn của Python",
-      "Kiểm tra dòng dữ liệu lỗi và tính tổng theo ngày",
-      "Phân biệt quan sát với kết luận từ một mẫu nhỏ"
-    ],
-    "requirements": [
-      "Máy tính có Python 3; không cần pandas",
-      "Biết biến, vòng lặp và dictionary cơ bản"
-    ],
-    "section": "Từ bảng số liệu đến một câu hỏi tốt hơn",
-    "lessons": [
-      {
-        "title": "01 · Đặt câu hỏi và đọc file CSV",
-        "file": "waste-01.md"
-      },
-      {
-        "title": "02 · Kiểm tra dữ liệu và tính tổng",
-        "file": "waste-02.md"
-      },
-      {
-        "title": "03 · Đọc kết quả mà không đoán quá xa",
-        "file": "waste-03.md"
-      }
-    ],
-    "downloads": [
-      "food-waste.py",
-      "food-waste.csv"
-    ],
-    "kind": "project"
-  },
-  {
-    "slug": "python-nen-tang",
-    "title": {
-      "vi": "Python: những chương trình hữu ích đầu tiên",
-      "en": "Python: your first useful programs"
-    },
-    "subtitle": {
-      "vi": "Từ dòng chữ đầu tiên đến hàm tìm kiếm: sáu bài đọc, mã nguồn và bài tập tự kiểm tra.",
-      "en": "From your first output to a search function: six written lessons with code and exercises."
-    },
-    "categoryName": "Python & giải quyết vấn đề",
-    "categorySlug": "python-thuc-hanh",
+    "categoryName": "Công cụ cho trường học",
+    "categoryNameEn": "School tools",
+    "categorySlug": "python-truong-hoc",
     "theme": "slate",
-    "coverLabel": "Python / Nền tảng",
+    "symbol": "?",
+    "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Viết chương trình nhận câu trả lời và chọn phản hồi bằng điều kiện",
-      "Biểu diễn nhiều cuốn sách bằng list, dictionary và vòng lặp",
-      "Viết hàm tìm kiếm, kiểm tra đầu vào và giải thích lỗi thường gặp"
+      "Tạo mã cho từng đồ vật, lưu nơi và ngày tìm thấy",
+      "Tìm theo loại, màu sắc và trạng thái; gợi ý kết quả phù hợp",
+      "Ghi nhận xác minh và bàn giao, xuất danh sách đồ chưa nhận"
     ],
     "requirements": [
-      "Máy tính có Python 3 và trình soạn thảo",
-      "Không cần biết lập trình trước; không cần thư viện ngoài"
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Đọc, làm thử và tự kiểm tra",
-    "lessons": [
-      {
-        "title": "01 · Chạy chương trình và đọc kết quả",
-        "file": "python-01.md"
-      },
-      {
-        "title": "02 · Nhận câu trả lời bằng biến và input",
-        "file": "python-02.md"
-      },
-      {
-        "title": "03 · Điều kiện: đúng, sai và bỏ trống",
-        "file": "python-03.md"
-      },
-      {
-        "title": "04 · Danh sách và vòng lặp",
-        "file": "python-04.md"
-      },
-      {
-        "title": "05 · Dictionary: thông tin đi cùng nhau",
-        "file": "python-05.md"
-      },
-      {
-        "title": "06 · Hàm tìm kiếm và cách kiểm thử",
-        "file": "python-06.md"
-      }
-    ],
-    "downloads": [
-      "python-01-starter.py",
-      "python-01-solution.py",
-      "python-02-starter.py",
-      "python-02-solution.py",
-      "python-03-starter.py",
-      "python-03-solution.py",
-      "python-04-starter.py",
-      "python-04-solution.py",
-      "python-05-starter.py",
-      "python-05-solution.py",
-      "python-06-starter.py",
-      "python-06-solution.py"
-    ],
-    "kind": "foundation"
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 300000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "BEGINNER",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Tạo mã cho từng đồ vật, lưu nơi và ngày tìm thấy",
+        "Tìm theo loại, màu sắc và trạng thái; gợi ý kết quả phù hợp",
+        "Ghi nhận xác minh và bàn giao, xuất danh sách đồ chưa nhận"
+      ],
+      "en": [
+        "A searchable item register with unique IDs",
+        "A claim-and-return workflow with a private verification note",
+        "An export of unclaimed items without exposing personal contact details"
+      ]
+    },
+    "milestones": [
+      "Danh mục đồ vật và quy tắc dữ liệu",
+      "Tìm, lọc và xác minh người nhận",
+      "Bàn giao, xuất danh sách và kiểm thử"
+    ]
   },
   {
-    "slug": "web-nen-tang",
+    "slug": "python-ke-hoach-on-tap",
     "title": {
-      "vi": "Web: trang đầu tiên của bạn",
-      "en": "Web: your first website"
+      "vi": "Python: Lịch ôn tập biết chia việc",
+      "en": "Python: a revision planner that breaks work down"
     },
     "subtitle": {
-      "vi": "Tạo một trang hướng dẫn từ HTML và CSS, rồi kiểm tra bằng bàn phím và trên màn hình nhỏ.",
-      "en": "Build a useful page with HTML and CSS, then test keyboard use and small screens."
+      "vi": "Biến ngày kiểm tra và quỹ thời gian thành lịch ôn tập vừa sức; cập nhật lịch khi bỏ lỡ một buổi.",
+      "en": "Turn test dates and available time into a manageable revision plan, then reschedule a missed session."
     },
-    "categoryName": "Lập trình web",
-    "categorySlug": "lap-trinh-web",
+    "categoryName": "Công cụ cá nhân",
+    "categoryNameEn": "Personal tools",
+    "categorySlug": "python-tu-dong-hoa",
     "theme": "lime",
-    "coverLabel": "HTML + CSS / Nền tảng",
+    "symbol": "plan",
+    "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Tạo trang HTML có tiêu đề, danh sách và liên kết có ý nghĩa",
-      "Dùng CSS để trình bày nội dung dễ đọc và phù hợp màn hình nhỏ",
-      "Kiểm tra bằng bàn phím, sửa một vấn đề và giải thích lựa chọn thiết kế"
+      "Chia chủ đề thành buổi học theo thời lượng có thể dành mỗi ngày",
+      "Ưu tiên theo hạn và mức độ cần ôn; báo khi kế hoạch quá tải",
+      "Đánh dấu buổi đã làm, xếp lại buổi bỏ lỡ và xuất lịch CSV"
     ],
     "requirements": [
-      "Máy tính có trình duyệt và trình soạn thảo văn bản",
-      "Không cần biết lập trình trước"
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Đọc, làm thử và tự kiểm tra",
-    "lessons": [
-      {
-        "title": "01 · Một trang có cấu trúc",
-        "file": "web-01.md"
-      },
-      {
-        "title": "02 · Liên kết và hình ảnh có mục đích",
-        "file": "web-02.md"
-      },
-      {
-        "title": "03 · CSS: làm nội dung dễ đọc",
-        "file": "web-03.md"
-      },
-      {
-        "title": "04 · Trang đọc được trên màn hình nhỏ",
-        "file": "web-04.md"
-      }
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 300000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "BEGINNER",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Chia chủ đề thành buổi học theo thời lượng có thể dành mỗi ngày",
+        "Ưu tiên theo hạn và mức độ cần ôn; báo khi kế hoạch quá tải",
+        "Đánh dấu buổi đã làm, xếp lại buổi bỏ lỡ và xuất lịch CSV"
+      ],
+      "en": [
+        "A daily plan built from deadlines and available time",
+        "Capacity checks that explain an overloaded schedule",
+        "A rescheduling workflow and downloadable CSV timetable"
+      ]
+    },
+    "milestones": [
+      "Chủ đề, hạn và thời gian rảnh",
+      "Thuật toán chia buổi và kiểm tra quá tải",
+      "Cập nhật tiến độ và xuất lịch"
+    ]
+  },
+  {
+    "slug": "python-sap-xep-tep",
+    "title": {
+      "vi": "Python: Dọn thư mục, giữ nguyên dữ liệu",
+      "en": "Python: organize a folder without losing files"
+    },
+    "subtitle": {
+      "vi": "Tạo trợ lý sắp xếp tài liệu học tập: xem trước thay đổi, xử lý trùng tên và hoàn tác an toàn.",
+      "en": "Make a study-file organizer with a dry run, filename collision handling, and a safe undo log."
+    },
+    "categoryName": "Công cụ cá nhân",
+    "categoryNameEn": "Personal tools",
+    "categorySlug": "python-tu-dong-hoa",
+    "theme": "coral",
+    "symbol": "files",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Phân nhóm tệp theo quy tắc cấu hình được",
+      "Xem trước mọi thay đổi; giữ tệp trùng tên và bỏ qua thư mục ngoài phạm vi",
+      "Ghi nhật ký thao tác và hoàn tác một lượt sắp xếp"
     ],
-    "downloads": [
-      "web-foundations.html"
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
     ],
-    "kind": "foundation"
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 300000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "BEGINNER",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Phân nhóm tệp theo quy tắc cấu hình được",
+        "Xem trước mọi thay đổi; giữ tệp trùng tên và bỏ qua thư mục ngoài phạm vi",
+        "Ghi nhật ký thao tác và hoàn tác một lượt sắp xếp"
+      ],
+      "en": [
+        "A configurable folder organizer tested on a sandbox copy",
+        "A dry-run report and collision-safe move rules",
+        "An operation log and undo command with conflict checks"
+      ]
+    },
+    "milestones": [
+      "Đọc thư mục mẫu và tạo quy tắc",
+      "Xem trước và xử lý trùng tên",
+      "Nhật ký, hoàn tác và tình huống lỗi"
+    ]
+  },
+  {
+    "slug": "python-ngan-sach-cau-lac-bo",
+    "title": {
+      "vi": "Python: Sổ quỹ cho câu lạc bộ",
+      "en": "Python: a budget ledger for a club"
+    },
+    "subtitle": {
+      "vi": "Theo dõi khoản thu chi và ngân sách hoạt động; tạo báo cáo để cả nhóm cùng đối chiếu.",
+      "en": "Track club income, spending, and activity budgets, then produce a report the group can reconcile."
+    },
+    "categoryName": "Công cụ cho trường học",
+    "categoryNameEn": "School tools",
+    "categorySlug": "python-truong-hoc",
+    "theme": "lime",
+    "symbol": "₫",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Nhập giao dịch, danh mục và mã chứng từ; kiểm tra số tiền hợp lệ",
+      "Tính số dư và so sánh chi thực tế với ngân sách từng hoạt động",
+      "Phát hiện nhập trùng và xuất báo cáo đối chiếu theo tháng"
+    ],
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+    ],
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 400000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "INTERMEDIATE",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Nhập giao dịch, danh mục và mã chứng từ; kiểm tra số tiền hợp lệ",
+        "Tính số dư và so sánh chi thực tế với ngân sách từng hoạt động",
+        "Phát hiện nhập trùng và xuất báo cáo đối chiếu theo tháng"
+      ],
+      "en": [
+        "A transaction ledger backed by SQLite",
+        "Budget-versus-spend summaries and duplicate-entry checks",
+        "A monthly CSV report with traceable transaction references"
+      ]
+    },
+    "milestones": [
+      "Giao dịch và cơ sở dữ liệu SQLite",
+      "Ngân sách, số dư và dữ liệu nhập trùng",
+      "Báo cáo tháng và kiểm tra đối chiếu"
+    ]
+  },
+  {
+    "slug": "python-lich-tinh-nguyen",
+    "title": {
+      "vi": "Python: Xếp ca tình nguyện công bằng",
+      "en": "Python: a fair volunteer shift planner"
+    },
+    "subtitle": {
+      "vi": "Xếp lịch hoạt động từ thời gian rảnh, số người mỗi ca và giới hạn công việc của từng bạn.",
+      "en": "Schedule an activity around availability, staffing needs, and each volunteer’s workload limits."
+    },
+    "categoryName": "Công cụ cộng đồng",
+    "categoryNameEn": "Community tools",
+    "categorySlug": "python-cong-dong",
+    "theme": "slate",
+    "symbol": "shift",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Biểu diễn thời gian rảnh, vai trò và số người cần trong mỗi ca",
+      "Xếp ca theo quy tắc minh bạch; chỉ ra ca thiếu người hoặc xung đột",
+      "Đổi ca có kiểm tra điều kiện và xuất lịch chia sẻ bằng mã người dùng"
+    ],
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+    ],
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 400000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "INTERMEDIATE",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Biểu diễn thời gian rảnh, vai trò và số người cần trong mỗi ca",
+        "Xếp ca theo quy tắc minh bạch; chỉ ra ca thiếu người hoặc xung đột",
+        "Đổi ca có kiểm tra điều kiện và xuất lịch chia sẻ bằng mã người dùng"
+      ],
+      "en": [
+        "A constraint-based shift allocator with explicit fairness rules",
+        "An explanation of unfilled slots and conflicting requirements",
+        "A validated swap workflow and anonymized schedule export"
+      ]
+    },
+    "milestones": [
+      "Nhu cầu mỗi ca và thời gian rảnh",
+      "Phân ca, giới hạn và giải thích xung đột",
+      "Đổi ca và xuất lịch"
+    ]
+  },
+  {
+    "slug": "python-giam-lang-phi-thuc-pham",
+    "title": {
+      "vi": "Python: Theo dõi thức ăn thừa của lớp",
+      "en": "Python: track and reduce classroom food waste"
+    },
+    "subtitle": {
+      "vi": "Làm công cụ ghi lượng thức ăn thừa, kiểm tra dữ liệu và so sánh trước–sau một thay đổi nhỏ.",
+      "en": "Build a food-waste logger, validate measurements, and compare results before and after a small change."
+    },
+    "categoryName": "Dữ liệu & môi trường",
+    "categoryNameEn": "Data & environment",
+    "categorySlug": "python-du-lieu",
+    "theme": "coral",
+    "symbol": "csv",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Nhập dữ liệu theo bữa, nhóm thực phẩm, số suất và khối lượng",
+      "Chuẩn hóa đơn vị, phát hiện dữ liệu thiếu và tính lượng thừa trên mỗi suất",
+      "Vẽ biểu đồ so sánh, ghi yếu tố gây nhiễu và xuất báo cáo có giới hạn rõ ràng"
+    ],
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+    ],
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 400000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "INTERMEDIATE",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Nhập dữ liệu theo bữa, nhóm thực phẩm, số suất và khối lượng",
+        "Chuẩn hóa đơn vị, phát hiện dữ liệu thiếu và tính lượng thừa trên mỗi suất",
+        "Vẽ biểu đồ so sánh, ghi yếu tố gây nhiễu và xuất báo cáo có giới hạn rõ ràng"
+      ],
+      "en": [
+        "A validated meal log with consistent units",
+        "Per-meal and per-serving charts rather than misleading raw totals",
+        "A before-and-after report that states sample size and limitations"
+      ]
+    },
+    "milestones": [
+      "Thiết kế biểu mẫu ghi theo bữa",
+      "Làm sạch và chuẩn hóa trên mỗi suất",
+      "Biểu đồ, so sánh và báo cáo"
+    ]
+  },
+  {
+    "slug": "python-quan-ly-thiet-bi",
+    "title": {
+      "vi": "Python: Trạm mượn thiết bị cho trường",
+      "en": "Python: a school equipment lending station"
+    },
+    "subtitle": {
+      "vi": "Xây ứng dụng có giao diện cho mượn thiết bị: đặt lịch, bàn giao, trả đồ và theo dõi bảo trì.",
+      "en": "Build an interface for equipment reservations, handovers, returns, and maintenance tracking."
+    },
+    "categoryName": "Công cụ cho trường học",
+    "categoryNameEn": "School tools",
+    "categorySlug": "python-truong-hoc",
+    "theme": "slate",
+    "symbol": "gear",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Thiết kế cơ sở dữ liệu thiết bị, lượt đặt và trạng thái bảo trì",
+      "Ngăn đặt trùng giờ, kiểm tra bàn giao và xử lý lượt trả trễ",
+      "Làm dashboard bằng Streamlit, bộ kiểm thử và quy trình sao lưu/phục hồi"
+    ],
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+    ],
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 500000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "INTERMEDIATE",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Thiết kế cơ sở dữ liệu thiết bị, lượt đặt và trạng thái bảo trì",
+        "Ngăn đặt trùng giờ, kiểm tra bàn giao và xử lý lượt trả trễ",
+        "Làm dashboard bằng Streamlit, bộ kiểm thử và quy trình sao lưu/phục hồi"
+      ],
+      "en": [
+        "A Streamlit application with a SQLite data model",
+        "Reservation conflict checks and handover/return workflows",
+        "A maintenance dashboard, backup/restore procedure, and automated checks"
+      ]
+    },
+    "milestones": [
+      "Mô hình dữ liệu và vòng đời thiết bị",
+      "Đặt lịch, bàn giao và trả thiết bị",
+      "Giao diện và bảng bảo trì",
+      "Kiểm thử, sao lưu và phục hồi"
+    ]
+  },
+  {
+    "slug": "python-khao-sat-thanh-bao-cao",
+    "title": {
+      "vi": "Python: Từ khảo sát đến quyết định của lớp",
+      "en": "Python: turn a class survey into a useful report"
+    },
+    "subtitle": {
+      "vi": "Biến CSV khảo sát thành báo cáo tương tác: làm sạch câu trả lời, so sánh nhóm và trình bày điều dữ liệu thực sự nói.",
+      "en": "Turn survey CSVs into an interactive report: clean responses, compare groups, and show what the data supports."
+    },
+    "categoryName": "Dữ liệu & môi trường",
+    "categoryNameEn": "Data & environment",
+    "categorySlug": "python-du-lieu",
+    "theme": "lime",
+    "symbol": "stats",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Chuẩn hóa câu trả lời, xử lý thiếu dữ liệu và loại thông tin nhận diện khỏi báo cáo",
+      "Thiết kế biểu đồ có mẫu số và số người trả lời; tránh so sánh nhóm quá nhỏ",
+      "Làm dashboard bộ lọc, xuất báo cáo HTML và viết kết luận có căn cứ"
+    ],
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+    ],
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 500000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "INTERMEDIATE",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Chuẩn hóa câu trả lời, xử lý thiếu dữ liệu và loại thông tin nhận diện khỏi báo cáo",
+        "Thiết kế biểu đồ có mẫu số và số người trả lời; tránh so sánh nhóm quá nhỏ",
+        "Làm dashboard bộ lọc, xuất báo cáo HTML và viết kết luận có căn cứ"
+      ],
+      "en": [
+        "A reproducible cleaning pipeline for survey CSVs",
+        "A filterable dashboard with sample counts and privacy-aware group summaries",
+        "An HTML report with documented assumptions and test fixtures"
+      ]
+    },
+    "milestones": [
+      "Câu hỏi khảo sát và dữ liệu ẩn danh",
+      "Pipeline làm sạch và kiểm tra dữ liệu",
+      "Biểu đồ và dashboard lọc nhóm",
+      "Xuất báo cáo và kiểm thử"
+    ]
+  },
+  {
+    "slug": "python-nhat-ky-chat-luong-khong-khi",
+    "title": {
+      "vi": "Python: Nhật ký không khí quanh trường",
+      "en": "Python: an air-quality diary around school"
+    },
+    "subtitle": {
+      "vi": "Tổng hợp các lần đo hoặc dữ liệu mở thành dashboard theo thời gian, kèm dấu nguồn và ghi chú về độ tin cậy.",
+      "en": "Turn measurements or open data into a time-based dashboard with source records and data-quality notes."
+    },
+    "categoryName": "Dữ liệu & môi trường",
+    "categoryNameEn": "Data & environment",
+    "categorySlug": "python-du-lieu",
+    "theme": "coral",
+    "symbol": "air",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Nhập dữ liệu CSV từ các điểm đo, lưu nguồn, múi giờ và đơn vị",
+      "Kiểm tra khoảng trống, dữ liệu trùng và bất thường trước khi tính xu hướng",
+      "Xây dashboard theo điểm đo, xuất báo cáo và mô tả giới hạn của dữ liệu"
+    ],
+    "requirements": [
+      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
+      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+    ],
+    "section": "Lộ trình dự kiến",
+    "lessons": [],
+    "downloads": [],
+    "kind": "project",
+    "priceVnd": 500000,
+    "availability": "planned",
+    "publicTrial": false,
+    "level": "INTERMEDIATE",
+    "delivery": {
+      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
+      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+    },
+    "deliverables": {
+      "vi": [
+        "Nhập dữ liệu CSV từ các điểm đo, lưu nguồn, múi giờ và đơn vị",
+        "Kiểm tra khoảng trống, dữ liệu trùng và bất thường trước khi tính xu hướng",
+        "Xây dashboard theo điểm đo, xuất báo cáo và mô tả giới hạn của dữ liệu"
+      ],
+      "en": [
+        "A multi-location measurement importer with provenance records",
+        "Data-quality flags and comparable time-series summaries",
+        "A Streamlit dashboard and exportable report with clearly stated limitations"
+      ]
+    },
+    "milestones": [
+      "Nguồn dữ liệu, thời gian và đơn vị",
+      "Pipeline nhập và cờ chất lượng",
+      "Dashboard điểm đo và xu hướng",
+      "Xuất báo cáo, kiểm thử và giới hạn"
+    ]
   }
 ]

@@ -4,9 +4,9 @@
  */
 export const PRICE_BANDS = [
   { label: "Tất cả", min: "", max: "" },
-  { label: "Dưới 500.000 ₫", min: "", max: "499999" },
-  { label: "500.000 – 1.000.000 ₫", min: "500000", max: "1000000" },
-  { label: "Trên 1.000.000 ₫", min: "1000001", max: "" },
+  { label: "300.000 ₫", min: "300000", max: "300000" },
+  { label: "400.000 ₫", min: "400000", max: "400000" },
+  { label: "500.000 ₫", min: "500000", max: "500000" },
   { label: "Miễn phí", min: "0", max: "0" },
 ] as const;
 

@@ -64,6 +64,8 @@ export default async function CoursePage({
   const locale = await getLocale();
   const project = projectCourse(slug);
   const copy = projectCopy(slug, locale);
+  const structured = courseJsonLd(course, SITE_URL);
+  if (project?.availability === "planned") delete structured.offers;
 
   return (
     <article className="course-detail page-shell grid gap-8 py-10 lg:py-14">
@@ -71,7 +73,7 @@ export default async function CoursePage({
         type="application/ld+json"
         // Escaped by `jsonLdScript`: a title cannot close the block.
         dangerouslySetInnerHTML={{
-          __html: jsonLdScript(courseJsonLd(course, SITE_URL)),
+          __html: jsonLdScript(structured),
         }}
       />
       <nav aria-label="Đường dẫn" className="text-sm text-muted-foreground">
@@ -135,14 +137,22 @@ export default async function CoursePage({
               <div className="lesson-project-context">
                 <p className="course-format-label">
                   <UiText
-                    value="BÀI ĐỌC + THỰC HÀNH"
-                    en="WRITTEN LESSONS + PRACTICE"
+                    value={
+                      project.publicTrial
+                        ? "DỰ ÁN HỌC THỬ MIỄN PHÍ"
+                        : "DỰ ÁN ĐANG CHUẨN BỊ"
+                    }
+                    en={
+                      project.publicTrial
+                        ? "FREE TRIAL PROJECT"
+                        : "PROJECT IN PREPARATION"
+                    }
                   />
                 </p>
                 <p>
                   <UiText
-                    value={`${project.lessons.length} bài đọc, bài tập tự kiểm tra và mã nguồn. Bạn có thể hoàn thành khóa học này mà không cần video.`}
-                    en={`${project.lessons.length} written lessons, self-check exercises, and source files. You can complete this course without videos.`}
+                    value={project.delivery.vi}
+                    en={project.delivery.en}
                   />
                 </p>
                 <div className="lesson-project-files mt-3">
@@ -170,19 +180,64 @@ export default async function CoursePage({
             )}
           </header>
 
-          <CourseHighlights items={course.learningOutcomes} />
+          {project?.availability !== "planned" && (
+            <CourseHighlights items={course.learningOutcomes} />
+          )}
 
           <section className="grid gap-3">
             <h2 className="text-2xl font-semibold">
-              <UiText value="Mô tả khóa học" />
+              <UiText
+                value={
+                  project?.availability === "planned"
+                    ? "Sản phẩm bạn sẽ xây dựng"
+                    : "Mô tả khóa học"
+                }
+                en={
+                  project?.availability === "planned"
+                    ? "What you will build"
+                    : "About the course"
+                }
+              />
             </h2>
-            <Prose source={course.description} />
+            {project?.availability === "planned" ? (
+              <ul className="grid gap-3 pl-5 list-disc">
+                {(project.deliverables?.[locale] ?? project.outcomes).map(
+                  (item) => (
+                    <li key={item}>{item}</li>
+                  ),
+                )}
+              </ul>
+            ) : (
+              <Prose source={course.description} />
+            )}
           </section>
 
-          <CurriculumAccordion
-            sections={course.sections}
-            courseSlug={course.slug}
-          />
+          {project?.availability === "planned" ? (
+            <section className="grid gap-3">
+              <h2 className="text-2xl font-semibold">
+                <UiText value="Các mốc dự kiến" en="Planned milestones" />
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                <UiText
+                  value="Phạm vi có thể điều chỉnh khi biên soạn bài học. Đây chưa phải chương trình học đã hoàn thành."
+                  en="The scope may evolve during lesson development. This is a project outline; lessons are not available yet."
+                />
+              </p>
+              <ol className="planned-milestones">
+                {project.milestones?.map((item, index) => (
+                  <li key={item}>
+                    <span>0{index + 1}</span>
+                    {item}
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ) : (
+            <CurriculumAccordion
+              sections={course.sections}
+              courseSlug={course.slug}
+            />
+          )}
 
           <CourseRequirements items={course.requirements} />
           <CourseAudience items={course.targetAudience} />
@@ -205,8 +260,16 @@ export default async function CoursePage({
             />
             <p className="text-sm text-muted-foreground">
               <UiText
-                value="Bài học thử mở cho mọi tài khoản đã đăng nhập, không cần trả phí."
-                en="Preview lessons are open to signed-in accounts at no charge."
+                value={
+                  project?.publicTrial
+                    ? "Dự án tủ sách mở miễn phí cho mọi người."
+                    : "Khóa học có phí. Khi mở lớp, đăng ký trực tiếp với Nam qua Zalo hoặc thông tin liên hệ."
+                }
+                en={
+                  project?.publicTrial
+                    ? "The book project is free and open to everyone."
+                    : "Paid course. When enrollment opens, arrange access directly with Nam through Zalo or the contact details."
+                }
               />
             </p>
           </div>

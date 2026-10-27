@@ -180,8 +180,8 @@ export async function FaqAccordion() {
         "Can I preview a course?",
       ),
       answer: text(
-        "Các bài được đánh dấu Học thử trong chương trình học cho biết nội dung mở. Một số bài cần bạn đăng nhập để tiếp tục.",
-        "Lessons marked Preview in the course outline show what is open. Some require you to log in before continuing.",
+        "Dự án tủ sách chia sẻ có bốn video và bài đọc miễn phí, không cần tài khoản. Chín dự án còn lại có phí và đang được xây dựng nội dung.",
+        "The book-sharing project has four free videos and written notes, with no account required. The other nine projects are paid and their lessons are in preparation.",
       ),
     },
     {

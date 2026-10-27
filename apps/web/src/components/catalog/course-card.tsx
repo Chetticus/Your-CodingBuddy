@@ -85,6 +85,7 @@ export function PriceTag({
 }
 export function CourseMeta({ course }: { course: Course }) {
   const { locale, text } = useLanguage();
+  const planned = projectCourse(course.slug)?.availability === "planned";
   const levels = {
     BEGINNER: "Beginner",
     INTERMEDIATE: "Intermediate",
@@ -95,7 +96,9 @@ export function CourseMeta({ course }: { course: Course }) {
     <p className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
       <span className="inline-flex items-center gap-1.5">
         <BookOpen aria-hidden="true" size={14} />
-        {course.lessonCount} {text("bài học", "lessons")}
+        {planned
+          ? text("Đang chuẩn bị", "In preparation")
+          : `${course.lessonCount} ${text("bài học", "lessons")}`}
       </span>
       {course.totalDurationSeconds > 0 && (
         <span className="inline-flex items-center gap-1.5">
@@ -127,13 +130,14 @@ export function Cover({
   const project = projectCourse(course.slug);
   const { locale } = useLanguage();
   const symbol =
-    project?.theme === "slate"
+    project?.symbol ??
+    (project?.theme === "slate"
       ? "{py}"
       : project?.theme === "lime"
         ? "web"
         : project?.theme === "coral"
           ? "csv"
-          : subject(course.title);
+          : subject(course.title));
   const theme =
     project?.theme ??
     (/python|typescript/i.test(course.title)
@@ -159,7 +163,7 @@ export function Cover({
             {project
               ? locale === "vi"
                 ? project.coverLabel
-                : `${project.theme === "lime" ? "HTML + CSS" : "Python"} / ${project.kind === "foundation" ? "Foundations" : "Practical project"}`
+                : "Python / Practical project"
               : /python/i.test(course.title)
                 ? "Python"
                 : /typescript/i.test(course.title)
@@ -203,11 +207,11 @@ export function CourseCard({ course }: { course: Course }) {
         <div className="course-copy">
           <span className="course-category">
             {project
-              ? project.kind === "foundation"
-                ? text("Nền tảng + bài tập thực hành", "Foundations + practice")
+              ? project.publicTrial
+                ? text("Học thử miễn phí · 4 video", "Free trial · 4 videos")
                 : text(
-                    "Bài đọc + dự án thực hành",
-                    "Written lessons + hands-on project",
+                    "Dự án Python · Đang chuẩn bị",
+                    "Python project · In preparation",
                   )
               : course.demoStats
                 ? text("Nội dung mẫu", "Sample content")
@@ -229,7 +233,9 @@ export function CourseCard({ course }: { course: Course }) {
               compareAtPriceVnd={course.compareAtPriceVnd}
             />
             <span>
-              {text("Xem nội dung", "View course")}
+              {project?.availability === "planned"
+                ? text("Xem dự án", "Explore project")
+                : text("Xem nội dung", "View course")}
               <ArrowRight aria-hidden="true" size={17} />
             </span>
           </div>

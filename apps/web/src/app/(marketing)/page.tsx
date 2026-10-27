@@ -17,7 +17,7 @@ export default async function HomePage() {
     catalog?.items.filter((course) => projectCourse(course.slug)) ?? [];
   const highlights = [
     featured.find((course) => course.slug === "python-tu-sach-lop-minh"),
-    featured.find((course) => course.slug === "web-huong-dan-ky-nang-so"),
+    featured.find((course) => course.slug === "python-ngan-sach-cau-lac-bo"),
   ].filter((course): course is CourseCard => Boolean(course));
   return (
     <>
@@ -38,8 +38,8 @@ export default async function HomePage() {
           <div>
             <p>
               {t(
-                "Một lộ trình học tập có hướng dẫn: học kiến thức nền tảng, dùng kiến thức ấy để giải quyết một vấn đề, rồi cải tiến qua phản hồi.",
-                "A guided learning path: learn the fundamentals, use them to solve a problem, then improve your project through feedback.",
+                "Bắt đầu với tủ sách chia sẻ miễn phí. Sau đó, chọn một vấn đề gần mình và xây công cụ Python để giải quyết từng việc cụ thể.",
+                "Start with the free book-sharing project. Then choose a problem close to home and build a Python tool to solve a real task.",
               )}
             </p>
             <div className="hero-actions">
@@ -47,8 +47,8 @@ export default async function HomePage() {
                 {t("Khám phá khóa học", "Explore courses")}{" "}
                 <ArrowRight size={18} aria-hidden="true" />
               </Link>
-              <Link href="/workshop" className="inline-link">
-                {t("Thử một bài thực hành", "Try a practice project")}
+              <Link href="/trial/books" className="inline-link">
+                {t("Học thử dự án tủ sách", "Try the free book project")}
               </Link>
             </div>
           </div>
@@ -95,8 +95,8 @@ export default async function HomePage() {
         )}
         <p className="course-format-note">
           {t(
-            "Các khóa dự án mới có bài đọc, bài tập và mã nguồn. Video của mình đang được chuẩn bị.",
-            "The new project courses include written lessons, exercises, and source files. My videos are in preparation.",
+            "Tủ sách chia sẻ: 4 video và bài thực hành miễn phí. Chín dự án tiếp theo đang chuẩn bị, học phí từ 300.000₫ đến 500.000₫.",
+            "Book sharing: four free videos with practice notes. Nine more projects are in preparation, priced from 300,000₫ to 500,000₫.",
           )}
         </p>
       </section>
@@ -168,8 +168,8 @@ export default async function HomePage() {
             <MonitorPlay size={21} aria-hidden="true" />
             <p>
               {t(
-                "Mình đang chuẩn bị chuỗi video hướng dẫn làm dự án. Bạn có thể bắt đầu với bài đọc, bài tập và mã nguồn trong các khóa dự án.",
-                "I’m preparing a project-building video series. You can begin with the written lessons, exercises, and source files in the project courses.",
+                "Bốn video đầu tiên của mình đã có trong dự án tủ sách chia sẻ. Bạn có thể xem và làm theo ngay, không cần tài khoản.",
+                "My first four videos are in the book-sharing project. Watch and build along now, with no account required.",
               )}
             </p>
           </div>

@@ -7,6 +7,8 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import {
   PrismaClient,
   CourseLevel,
+  VideoProvider,
+  VideoAssetStatus,
   CourseStatus,
   LessonType,
   StorageProvider,
@@ -38,8 +40,18 @@ type Project = {
   outcomes: string[];
   requirements: string[];
   section: string;
-  lessons: { title: string; file: string }[];
+  lessons: {
+    title: string;
+    file: string;
+    video?: string;
+    durationSeconds?: number;
+  }[];
   downloads: string[];
+  priceVnd: number;
+  availability: 'available' | 'planned';
+  publicTrial: boolean;
+  level: CourseLevel;
+  milestones?: string[];
 };
 const projects = JSON.parse(
   await readFile(
@@ -55,6 +67,14 @@ const storageRoot = resolve(
   process.env.STORAGE_LOCAL_DIR ?? '.storage',
 );
 try {
+  // Retire old demo and foundation offerings without deleting enrollments/progress.
+  await prisma.course.updateMany({
+    where: {
+      slug: { notIn: projects.map((project) => project.slug) },
+      status: CourseStatus.PUBLISHED,
+    },
+    data: { status: CourseStatus.ARCHIVED, archivedAt: new Date() },
+  });
   for (const project of projects) {
     const category = await prisma.category.upsert({
       where: { slug: project.categorySlug },
@@ -65,7 +85,10 @@ try {
       },
       update: {},
     });
-    const description = `## Bạn sẽ làm được gì?\n\n${project.subtitle.vi}\n\nĐây là khóa học bằng bài đọc và thực hành, gồm ${project.lessons.length} bài có ví dụ, giải thích, bài tập và lời giải để tự kiểm tra. Bạn có thể hoàn thành khóa bằng các bài đọc hiện có, không cần chờ video.\n\n## Cách học\n\nĐọc một phần, chạy thử đoạn code nhỏ rồi làm bài tập trước khi xem mã hoàn chỉnh. Các ví dụ và dữ liệu dùng để học, chưa phải dự án đã được triển khai trong cộng đồng.\n\n## Tệp dự án\n\n${project.downloads.map((file) => `- [${file}](/downloads/projects/${file})`).join('\n')}`;
+    const planned = project.availability === 'planned';
+    const description = planned
+      ? `## Dự án đang chuẩn bị\n\n${project.subtitle.vi}\n\nHọc phí dự kiến: ${project.priceVnd.toLocaleString('vi-VN')}₫. Chưa mở đăng ký học; nội dung chi tiết và tài liệu sẽ được bổ sung trước khi mở lớp.\n\n## Phạm vi dự kiến\n\n${project.outcomes.map((line) => `- ${line}`).join('\n')}\n\n## Các mốc thực hiện\n\n${(project.milestones ?? []).map((line, i) => `${i + 1}. ${line}`).join('\n')}`
+      : `## Dự án học thử miễn phí\n\n${project.subtitle.vi}\n\nBốn video hướng dẫn của Hải Nam, bài đọc thực hành và mã nguồn. Mở cho mọi người, không cần tài khoản.\n\n[Học ngay miễn phí](/trial/books)\n\n## Cách học\n\nXem một phần, dừng video để làm thử, rồi đọc ghi chú và kiểm tra kết quả.\n\n## Mã nguồn\n\n${project.downloads.map((file) => `- [${file}](/downloads/projects/${file})`).join('\n')}`;
     const data = {
       title: project.title.vi,
       subtitle: project.subtitle.vi,
@@ -75,7 +98,7 @@ try {
         project.subtitle.vi + ' ' + project.subtitle.en,
       ),
       categoryId: category.id,
-      level: CourseLevel.BEGINNER,
+      level: project.level,
       language: 'vi',
       learningOutcomes: project.outcomes,
       requirements: project.requirements,
@@ -83,11 +106,15 @@ try {
         'Bạn 10–15 tuổi muốn làm một dự án nhỏ có ích',
         'Người học muốn thực hành và giải thích được điều mình viết',
       ],
-      priceVnd: 0,
+      priceVnd: project.priceVnd,
       compareAtPriceVnd: null,
       status: CourseStatus.PUBLISHED,
+      archivedAt: null,
       lessonCount: project.lessons.length,
-      totalDurationSeconds: 0,
+      totalDurationSeconds: project.lessons.reduce(
+        (total, lesson) => total + (lesson.durationSeconds ?? 0),
+        0,
+      ),
       ratingAverage: null,
       ratingCount: 0,
       demoStats: false,
@@ -107,12 +134,33 @@ try {
         resolve(root, 'content/project-lessons', entry.file),
         'utf8',
       );
+      const video = entry.video
+        ? await prisma.videoAsset.upsert({
+            where: {
+              provider_externalId: {
+                provider: VideoProvider.DEMO,
+                externalId: `books/lesson-${String(index + 1).padStart(2, '0')}`,
+              },
+            },
+            create: {
+              provider: VideoProvider.DEMO,
+              externalId: `books/lesson-${String(index + 1).padStart(2, '0')}`,
+              status: VideoAssetStatus.READY,
+              durationSeconds: entry.durationSeconds ?? 0,
+            },
+            update: {
+              status: VideoAssetStatus.READY,
+              durationSeconds: entry.durationSeconds ?? 0,
+            },
+          })
+        : null;
       const lessonData = {
         title: entry.title,
-        type: LessonType.ARTICLE,
+        type: entry.video ? LessonType.VIDEO : LessonType.ARTICLE,
+        videoAssetId: video?.id ?? null,
         content,
-        isPreview: true,
-        durationSeconds: 0,
+        isPreview: project.publicTrial,
+        durationSeconds: entry.durationSeconds ?? 0,
       };
       const lesson = await prisma.lesson.upsert({
         where: {
@@ -161,7 +209,7 @@ try {
     const admin = await prisma.user.findUnique({
       where: { email: 'admin@elearning.local' },
     });
-    if (student && admin) {
+    if (student && admin && project.publicTrial) {
       await prisma.enrollment.upsert({
         where: { userId_courseId: { userId: student.id, courseId: course.id } },
         create: {
@@ -183,7 +231,7 @@ try {
       });
     }
     console.log(
-      `Local written course ready: ${project.slug} (${project.lessons.length} lessons)`,
+      `Local project ready: ${project.slug} (${project.priceVnd} VND, ${project.availability})`,
     );
   }
 } finally {

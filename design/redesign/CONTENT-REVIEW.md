@@ -1,3 +1,5 @@
+> Superseded catalog: the five-course inventory below records the 27 October version. The active catalog is documented in [CATALOG-2026-10-28.md](CATALOG-2026-10-28.md).
+
 # Content and community review — 27 October 2026
 
 Local-only review. No upload, push or deployment was performed.

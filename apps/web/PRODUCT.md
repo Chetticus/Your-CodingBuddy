@@ -43,3 +43,8 @@ The active system is the Maker’s Notebook course site in root DESIGN.md, using
 The user authorized implementation on 25 October 2026 and explicitly deferred uploading/deployment. Local review uses an isolated database and demo providers. No real credentials, production data, live payments, or external mail delivery are required.
 
 See design/redesign/LOCAL-REVIEW.md for startup and review notes. The prepared product and design briefs record remaining content decisions.
+
+
+## Catalog revision — 28 October 2026
+
+The current catalog is one public, free book-sharing trial and nine upcoming paid Python projects. The trial at `/trial/books` has four downloaded recordings, practice notes and source files, available without an account. Paid projects are listed at 300,000₫, 400,000₫ or 500,000₫; each shows its proposed scope and an explicit in-preparation state, with an inquiry rather than immediate enrollment. Old foundation, web and inherited demo courses are removed from the public catalog by archiving; existing account history and progress are preserved. Future paid access remains arranged directly with Nam. The transfer-only archive and setup guide were removed. See `design/redesign/CATALOG-2026-10-28.md` for the active content scope. This revision is pushed to the user-owned repository for review; live deployment remains deferred.

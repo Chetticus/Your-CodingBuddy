@@ -68,21 +68,21 @@ export default async function CoursesPage({
         </h1>
         <p>
           {t(
-            "Học kiến thức nền tảng, làm theo từng bước và thử một dự án của riêng mình. Có bài đọc, bài tập và mã nguồn để bạn thực sự bắt tay vào làm.",
-            "Learn the fundamentals, follow the steps, and build a project of your own. Written lessons, exercises, and source files help you put it into practice.",
+            "Bắt đầu miễn phí với dự án tủ sách và bốn video hướng dẫn. Chọn hướng làm tiếp từ chín dự án Python đang chuẩn bị, với học phí 300.000₫, 400.000₫ hoặc 500.000₫.",
+            "Start free with four videos for the book-sharing project. Explore nine upcoming Python projects priced at 300,000₫, 400,000₫, or 500,000₫.",
           )}
         </p>
         <div className="catalog-hero-bottom">
           <span>
             {t(
-              "Python · Web · Tư duy giải quyết vấn đề",
-              "Python · Web · Problem solving",
+              "Python · Công cụ dùng được · Dữ liệu thực tế",
+              "Python · Useful tools · Real-world data",
             )}
           </span>
-          <Link href="/workshop" className="inline-link">
+          <Link href="/trial/books" className="inline-link">
             {t(
-              "Chưa biết bắt đầu? Thử bài mở",
-              "Not sure where to start? Try the open lesson",
+              "Bắt đầu với tủ sách miễn phí",
+              "Start with the free book project",
             )}{" "}
             <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
@@ -156,7 +156,7 @@ export default async function CoursesPage({
                     )}
               </p>
               <Link
-                href={courses ? "/courses" : "/workshop"}
+                href={courses ? "/courses" : "/trial/books"}
                 className="studio-button"
               >
                 {courses
@@ -167,8 +167,8 @@ export default async function CoursesPage({
           )}
           <p className="course-format-note">
             {t(
-              "Các khóa dự án mới: bài đọc + thực hành, mã nguồn có sẵn. Video hướng dẫn đang chuẩn bị. Nội dung mẫu của hệ thống được đánh dấu riêng.",
-              "New project courses: written lessons, practice, and source files. Teaching videos are in preparation. Inherited sample courses are labeled separately.",
+              "Một dự án học thử miễn phí. Chín dự án có phí đang xây dựng nội dung; chưa mở đăng ký học.",
+              "One free trial project. Nine paid projects are in development; enrollment is not open yet.",
             )}
           </p>
         </div>

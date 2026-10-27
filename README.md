@@ -1,11 +1,19 @@
-# E-learning
+# The CodingBuddy
 
-Monorepo khởi đầu cho hệ thống bán khóa học trực tuyến:
+Website học Python qua các dự án thực tế dành cho học sinh 10–15 tuổi.
 
 - `apps/web`: Next.js
 - `apps/api`: NestJS + Prisma
 - `docs/PROJECT_PLAN.md`: phân tích chức năng và kiến trúc đã thống nhất
 - `docs/_STATUS.md`: trạng thái triển khai; `docs/_PLAN.md`: việc còn lại, chia task nhỏ
+
+## Danh mục dự án hiện tại
+
+Dự án tủ sách chia sẻ miễn phí tại `/trial/books`, có bốn video của Hải Nam, bài đọc và mã nguồn. Không cần đăng nhập. Chín dự án Python tiếp theo được niêm yết ở mức 300.000₫, 400.000₫ hoặc 500.000₫ và ghi rõ đang chuẩn bị; chưa mở đăng ký học. Danh mục và phạm vi nằm trong `apps/web/src/content/project-courses.json`.
+
+Video nằm tại `apps/web/public/videos/books/`. Tệp `content/book-videos.json` ghi tên gốc, thời lượng và checksum để kiểm tra nguồn. Chạy `pnpm --filter api exec tsx prisma/seed-project-courses.ts` sau seed demo để áp dụng danh mục mới vào cơ sở dữ liệu review tại `127.0.0.1:55435/template1`. Lệnh này lưu trữ các khóa cũ, giữ lịch sử quyền học và tiến độ, và không chạy với production.
+
+Xem `design/redesign/CATALOG-2026-10-28.md` để đọc phạm vi và học phí từng dự án. Các kịch bản quay vẫn ở `content/recording-kit/`; đây là tài liệu soạn bài, không phải các khóa nền tảng còn được niêm yết.
 
 ## Chạy local
 
@@ -21,7 +29,7 @@ corepack pnpm --filter api seed
 corepack pnpm dev
 ```
 
-Web chạy tại `http://localhost:3000`; API chạy tại `http://localhost:3001`.
+Web chạy tại `http://localhost:5000`; API chạy tại `http://localhost:3001`.
 
 Seed tạo năm tài khoản demo (admin, giảng viên, ba học viên); email và mật khẩu được ghi trong `apps/api/prisma/seed.ts`. Seed tự từ chối chạy khi `NODE_ENV=production`.
 
