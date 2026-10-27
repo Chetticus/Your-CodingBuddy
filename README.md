@@ -1,0 +1,128 @@
+# E-learning
+
+Monorepo khởi đầu cho hệ thống bán khóa học trực tuyến:
+
+- `apps/web`: Next.js
+- `apps/api`: NestJS + Prisma
+- `docs/PROJECT_PLAN.md`: phân tích chức năng và kiến trúc đã thống nhất
+- `docs/_STATUS.md`: trạng thái triển khai; `docs/_PLAN.md`: việc còn lại, chia task nhỏ
+
+## Chạy local
+
+Yêu cầu Node.js có Corepack và một PostgreSQL đang chạy tại URL được cấu hình trong `apps/api/.env`.
+
+```powershell
+Copy-Item apps/api/.env.example apps/api/.env
+Copy-Item apps/web/.env.example apps/web/.env.local
+corepack pnpm install
+corepack pnpm --filter api prisma:generate
+corepack pnpm --filter api prisma:migrate
+corepack pnpm --filter api seed
+corepack pnpm dev
+```
+
+Web chạy tại `http://localhost:3000`; API chạy tại `http://localhost:3001`.
+
+Seed tạo năm tài khoản demo (admin, giảng viên, ba học viên); email và mật khẩu được ghi trong `apps/api/prisma/seed.ts`. Seed tự từ chối chạy khi `NODE_ENV=production`.
+
+Tạo `AUTH_JWT_SECRET` bằng lệnh dưới đây rồi lưu kết quả vào `apps/api/.env`:
+
+```powershell
+node -e "console.log(require('node:crypto').randomBytes(48).toString('base64url'))"
+```
+
+## Thử luồng thanh toán (demo)
+
+Mặc định `PAYMENT_DRIVER=demo`: mã QR là giả, không cần tài khoản ZaloPay. `NEXT_PUBLIC_CHECKOUT_ENABLED=true` (đã có ở `apps/web/.env.example`) bật nút "Đăng ký học", `/checkout`, `/account/orders` và `/admin/orders`; biến này được nhúng lúc build nên đổi giá trị thì phải build lại.
+
+1. Đăng nhập `student3@elearning.local`, mở một khóa có giá và bấm "Đăng ký học".
+2. Trên trang thanh toán, bấm "Thanh toán" (chế độ demo, không trừ tiền thật). Admin cũng xác nhận được từ `/admin/orders` bằng nút "Xác nhận thanh toán".
+3. Trang thanh toán chuyển sang "Thanh toán thành công"; `/admin` hiện doanh thu.
+
+Các bước đầy đủ và kết quả mong đợi: `docs/ROADMAP.md` §8 (Demo script). `PAYMENT_DRIVER=zalopay` cần thông tin merchant sandbox và chưa được kiểm chứng (`docs/_PLAN.md`, A4.9).
+
+## API authentication
+
+- `POST /api/v1/auth/register`
+- `POST /api/v1/auth/login`
+- `GET /api/v1/auth/me`
+- `POST /api/v1/auth/logout`
+- `GET /api/v1/auth/csrf`
+
+Session JWT được gửi bằng cookie `HttpOnly`. Trước các request `POST`, gọi endpoint CSRF rồi gửi token nhận được qua header `X-CSRF-Token`; trình duyệt đồng thời gửi cookie CSRF tương ứng.
+
+## Kiểm tra
+
+```powershell
+corepack pnpm lint
+corepack pnpm typecheck
+corepack pnpm test
+corepack pnpm --filter api test:e2e
+corepack pnpm build
+```
+
+E2E dùng riêng database `elearning_test` với tài khoản PostgreSQL cùng tên, theo `apps/api/.env.test`. Không trỏ file này vào database dev hoặc production.
+
+### E2E trình duyệt (Playwright)
+
+```powershell
+corepack pnpm --filter web exec playwright install chromium   # một lần
+createdb -U elearning_test elearning_e2e                       # một lần, database trống
+corepack pnpm e2e:web
+```
+
+Bốn luồng trong `apps/web/e2e/`: khách đăng nhập rồi học (tiến độ được lưu), học viên mới bị chặn ở bài trả phí, đăng ký trực tiếp qua trang liên hệ Nam (không tạo thanh toán online), giảng viên tạo và xuất bản khóa học. Lệnh tự build rồi chạy API ở cổng 3201 và web (bản production, bật lịch sử đơn cũ) ở cổng 3200, nên không đụng tới bộ dev 3000/3001. Trước mỗi lần chạy, database được `prisma migrate deploy`, xóa đơn hàng, quyền học, tiến độ, phiên đăng nhập cùng các tài khoản/khóa học `e2e-`, rồi seed lại.
+
+- `E2E_DATABASE_URL`: database dùng cho e2e, mặc định `postgresql://elearning_test:elearning_test@localhost:5432/elearning_e2e`. Không trỏ vào database dev hoặc production: dữ liệu trong đó bị xóa.
+- `E2E_REUSE_SERVERS=1`: dùng lại API/web đang chạy ở 3200/3201 thay vì build lại (phải chạy với cùng biến môi trường như `apps/web/e2e/env.ts`).
+- Lỗi thì xem trace: `corepack pnpm --filter web exec playwright show-trace test-results/<thư mục>/trace.zip` (đường dẫn tính từ `apps/web`).
+
+## Sao lưu và khôi phục
+
+Cần `pg_dump`, `pg_restore`, `psql` (lấy từ `PATH`, nếu không có thì từ `C:\Program Files\PostgreSQL\*\bin`). Phiên bản client phải bằng hoặc mới hơn server. Script không in mật khẩu.
+
+Sao lưu (định dạng custom, không kèm owner/quyền nên restore được vào role khác). File nằm ở `backups/` (đã gitignore):
+
+```powershell
+./apps/api/scripts/backup.ps1 -DatabaseUrl "<URL Postgres>"   # bỏ -DatabaseUrl thì dùng $env:DATABASE_URL
+```
+
+Database nằm trên server khác thì dùng URL mà máy chạy script truy cập được, không phải URL chỉ dùng trong mạng nội bộ của server.
+
+Diễn tập khôi phục (A5.5) vào một database **trống** có tên chứa `test`/`scratch`/`restore`/`drill`/`tmp`:
+
+```powershell
+./apps/api/scripts/restore-drill.ps1 -SourceUrl "<URL nguồn>" -TargetUrl "<URL DB trống>" -RunE2e
+# hoặc khôi phục một file có sẵn: -DumpFile backups/<file>.dump
+```
+
+Script tự `pg_dump` nguồn (nếu không có `-DumpFile`), `pg_restore` vào đích, rồi kiểm tra `_prisma_migrations` so với `apps/api/prisma/migrations` (migration chưa có trong bản dump chỉ cảnh báo) và số dòng từng bảng so với nguồn. Nó từ chối đích trùng tên nguồn, đích đã có bảng, hoặc tên không giống DB nháp — `-Force` để bỏ qua (trùng cả host lẫn tên thì luôn từ chối). `-RunE2e` chạy e2e của API, vốn đọc `apps/api/.env.test`: sửa `DATABASE_URL` trong đó trỏ vào DB đích trước (e2e sẽ xóa dữ liệu và chạy `prisma migrate deploy`). Nguồn đang có người ghi thì số dòng có thể lệch; so trên bản sao chụp hoặc lúc ít truy cập.
+
+## Triển khai
+
+Hiện dự án chạy local. **Chưa chọn server triển khai**; khi chọn, nếu reverse proxy trước hai service ghi đè `X-Real-IP` bằng IP của khách (nginx: `proxy_set_header X-Real-IP $remote_addr`) thì đặt `TRUST_X_REAL_IP=true` cho cả `web` và `api`. Không đặt thì code bỏ qua header đó và mọi khách dùng chung một bucket rate limit (API_CONTRACT.md §8.1).
+
+Hai service `web` và `api` phải có **cùng** `INTERNAL_API_SECRET` (chuỗi ngẫu nhiên ≥ 32 byte, ví dụ `openssl rand -base64 48`). Máy chủ Next gửi nó kèm IP của khách trong mọi request tới API, để rate limit và audit log tính theo từng khách thay vì theo máy chủ Next (API_CONTRACT.md §8.1). Thiếu ở production thì API không boot, và web không khởi động khi `TRUST_X_REAL_IP=true`; lệch giá trị thì mọi khách lại dùng chung một bucket. Không bao giờ đặt tên nó với tiền tố `NEXT_PUBLIC_`.
+
+Production từ chối khởi động với driver demo (`docs/DEMO_MODE.md`): triển khai thật cần driver thật.
+
+`web` cần `CSP_MEDIA_ORIGINS` liệt kê mọi host ngoài site mà trình duyệt tải ảnh, video, HLS hoặc `PUT` tải lên tới; thiếu một host thì CSP chặn đúng thứ đó (ảnh bìa trống, "Không phát được video", tải lên lỗi). Ở production (`STORAGE_DRIVER=r2`, `VIDEO_DRIVER=cloudflare`) giá trị là đúng bốn origin, cách nhau bằng dấu cách, không wildcard, không path:
+
+```
+CSP_MEDIA_ORIGINS="<origin của R2_PUBLIC_BASE_URL> <origin của R2_ENDPOINT> https://videodelivery.net https://customer-<CODE>.cloudflarestream.com"
+```
+
+- origin của `R2_PUBLIC_BASE_URL` (custom domain hoặc `https://pub-<HASH>.r2.dev`): ảnh bìa;
+- origin của `R2_ENDPOINT` (`https://<ACCOUNT_ID>.r2.cloudflarestorage.com`): URL `PUT` đã ký;
+- `https://videodelivery.net`: host của playback URL mà API ký, hls.js tải playlist từ đó;
+- `https://customer-<CODE>.cloudflarestream.com`: domain Stream của tài khoản (xem trong dashboard Stream).
+
+Driver demo phục vụ mọi thứ qua `/api` của chính site nên để trống. Biến được đọc lúc build và start, đổi xong phải deploy lại `web`.
+
+Từ T4.18, đăng ký video Cloudflare (`POST /admin/videos`) tự bật `requireSignedURLs` trên video đó. Video đăng ký **trước** thay đổi này vẫn phát được với ai biết UID (UID đọc được trong mọi playback token): bật một lần cho từng video, trong dashboard Stream (Settings của video → *Require Signed URLs*) hoặc qua API:
+
+```
+curl -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/stream/<UID>" \
+  -H "Authorization: Bearer $CLOUDFLARE_STREAM_API_TOKEN" -H "Content-Type: application/json" \
+  --data '{"uid":"<UID>","requireSignedURLs":true}'
+```

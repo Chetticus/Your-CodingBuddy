@@ -1,0 +1,246 @@
+[
+  {
+    "slug": "python-tu-sach-lop-minh",
+    "title": {
+      "vi": "Python: tủ sách chia sẻ của lớp mình",
+      "en": "Python: a book-sharing tracker for your class"
+    },
+    "subtitle": {
+      "vi": "Tìm sách còn trống, ghi nhận lượt mượn và lưu danh sách bằng Python. Một công cụ nhỏ để những cuốn sách được đọc tiếp.",
+      "en": "Find available books, record a loan, and save your list with Python. A small tool to keep books moving."
+    },
+    "category": "lap-trinh-web",
+    "categoryName": "Python & giải quyết vấn đề",
+    "categorySlug": "python-thuc-hanh",
+    "theme": "slate",
+    "coverLabel": "Python / Dự án thực tế",
+    "outcomes": [
+      "Lưu sách bằng danh sách và dictionary",
+      "Tìm theo tên và cập nhật trạng thái mượn",
+      "Lưu, đọc dữ liệu JSON và kiểm tra đầu vào"
+    ],
+    "requirements": [
+      "Máy tính có Python 3; không cần thư viện ngoài",
+      "Biết chạy một file Python và hiểu biến, vòng lặp cơ bản"
+    ],
+    "section": "Từ danh sách sách đến công cụ dùng được",
+    "lessons": [
+      {
+        "title": "01 · Mô tả một cuốn sách bằng dữ liệu",
+        "file": "books-01.md"
+      },
+      {
+        "title": "02 · Tìm sách và xử lý lượt mượn",
+        "file": "books-02.md"
+      },
+      {
+        "title": "03 · Lưu dữ liệu, thử sai và cải thiện",
+        "file": "books-03.md"
+      }
+    ],
+    "downloads": [
+      "book-sharing.py"
+    ],
+    "kind": "project"
+  },
+  {
+    "slug": "web-huong-dan-ky-nang-so",
+    "title": {
+      "vi": "Web: hướng dẫn kỹ năng số dễ hiểu",
+      "en": "Web: a digital-skills guide people can follow"
+    },
+    "subtitle": {
+      "vi": "Làm một trang hướng dẫn kiểm tra đường dẫn đáng ngờ. Dùng HTML, CSS và phản hồi của người đọc để viết cho rõ ràng.",
+      "en": "Build a guide to checking suspicious links. Use HTML, CSS, and reader feedback to make the steps clear."
+    },
+    "categoryName": "Lập trình web",
+    "categorySlug": "lap-trinh-web",
+    "theme": "lime",
+    "coverLabel": "HTML + CSS / Dự án thực tế",
+    "outcomes": [
+      "Sắp xếp nội dung bằng HTML có ngữ nghĩa",
+      "Viết CSS dễ đọc trên điện thoại và bàn phím",
+      "Kiểm tra hướng dẫn với người đọc và sửa một điểm khó hiểu"
+    ],
+    "requirements": [
+      "Máy tính có trình duyệt và trình soạn thảo văn bản",
+      "Không cần biết lập trình trước; mở file HTML để chạy"
+    ],
+    "section": "Một trang nhỏ, một việc làm rõ ràng",
+    "lessons": [
+      {
+        "title": "01 · Chọn một việc và viết các bước",
+        "file": "guide-01.md"
+      },
+      {
+        "title": "02 · Tạo trang bằng HTML và CSS",
+        "file": "guide-02.md"
+      },
+      {
+        "title": "03 · Thử trên điện thoại và sửa theo phản hồi",
+        "file": "guide-03.md"
+      }
+    ],
+    "downloads": [
+      "digital-skills-guide.html"
+    ],
+    "kind": "project"
+  },
+  {
+    "slug": "python-nhat-ky-lang-phi-thuc-pham",
+    "title": {
+      "vi": "Python: đọc một nhật ký lãng phí thực phẩm",
+      "en": "Python: make sense of a food-waste log"
+    },
+    "subtitle": {
+      "vi": "Đọc dữ liệu CSV, cộng khối lượng theo ngày và tìm câu hỏi đáng thử tiếp. Bắt đầu từ số liệu mẫu, không vội kết luận.",
+      "en": "Read a CSV, total the waste by day, and find a question worth testing next. Start with sample data and avoid jumping to conclusions."
+    },
+    "categoryName": "Python & dữ liệu",
+    "categorySlug": "du-lieu-va-ai",
+    "theme": "coral",
+    "coverLabel": "Python + CSV / Dự án thực tế",
+    "outcomes": [
+      "Đọc CSV bằng thư viện chuẩn của Python",
+      "Kiểm tra dòng dữ liệu lỗi và tính tổng theo ngày",
+      "Phân biệt quan sát với kết luận từ một mẫu nhỏ"
+    ],
+    "requirements": [
+      "Máy tính có Python 3; không cần pandas",
+      "Biết biến, vòng lặp và dictionary cơ bản"
+    ],
+    "section": "Từ bảng số liệu đến một câu hỏi tốt hơn",
+    "lessons": [
+      {
+        "title": "01 · Đặt câu hỏi và đọc file CSV",
+        "file": "waste-01.md"
+      },
+      {
+        "title": "02 · Kiểm tra dữ liệu và tính tổng",
+        "file": "waste-02.md"
+      },
+      {
+        "title": "03 · Đọc kết quả mà không đoán quá xa",
+        "file": "waste-03.md"
+      }
+    ],
+    "downloads": [
+      "food-waste.py",
+      "food-waste.csv"
+    ],
+    "kind": "project"
+  },
+  {
+    "slug": "python-nen-tang",
+    "title": {
+      "vi": "Python: những chương trình hữu ích đầu tiên",
+      "en": "Python: your first useful programs"
+    },
+    "subtitle": {
+      "vi": "Từ dòng chữ đầu tiên đến hàm tìm kiếm: sáu bài đọc, mã nguồn và bài tập tự kiểm tra.",
+      "en": "From your first output to a search function: six written lessons with code and exercises."
+    },
+    "categoryName": "Python & giải quyết vấn đề",
+    "categorySlug": "python-thuc-hanh",
+    "theme": "slate",
+    "coverLabel": "Python / Nền tảng",
+    "outcomes": [
+      "Viết chương trình nhận câu trả lời và chọn phản hồi bằng điều kiện",
+      "Biểu diễn nhiều cuốn sách bằng list, dictionary và vòng lặp",
+      "Viết hàm tìm kiếm, kiểm tra đầu vào và giải thích lỗi thường gặp"
+    ],
+    "requirements": [
+      "Máy tính có Python 3 và trình soạn thảo",
+      "Không cần biết lập trình trước; không cần thư viện ngoài"
+    ],
+    "section": "Đọc, làm thử và tự kiểm tra",
+    "lessons": [
+      {
+        "title": "01 · Chạy chương trình và đọc kết quả",
+        "file": "python-01.md"
+      },
+      {
+        "title": "02 · Nhận câu trả lời bằng biến và input",
+        "file": "python-02.md"
+      },
+      {
+        "title": "03 · Điều kiện: đúng, sai và bỏ trống",
+        "file": "python-03.md"
+      },
+      {
+        "title": "04 · Danh sách và vòng lặp",
+        "file": "python-04.md"
+      },
+      {
+        "title": "05 · Dictionary: thông tin đi cùng nhau",
+        "file": "python-05.md"
+      },
+      {
+        "title": "06 · Hàm tìm kiếm và cách kiểm thử",
+        "file": "python-06.md"
+      }
+    ],
+    "downloads": [
+      "python-01-starter.py",
+      "python-01-solution.py",
+      "python-02-starter.py",
+      "python-02-solution.py",
+      "python-03-starter.py",
+      "python-03-solution.py",
+      "python-04-starter.py",
+      "python-04-solution.py",
+      "python-05-starter.py",
+      "python-05-solution.py",
+      "python-06-starter.py",
+      "python-06-solution.py"
+    ],
+    "kind": "foundation"
+  },
+  {
+    "slug": "web-nen-tang",
+    "title": {
+      "vi": "Web: trang đầu tiên của bạn",
+      "en": "Web: your first website"
+    },
+    "subtitle": {
+      "vi": "Tạo một trang hướng dẫn từ HTML và CSS, rồi kiểm tra bằng bàn phím và trên màn hình nhỏ.",
+      "en": "Build a useful page with HTML and CSS, then test keyboard use and small screens."
+    },
+    "categoryName": "Lập trình web",
+    "categorySlug": "lap-trinh-web",
+    "theme": "lime",
+    "coverLabel": "HTML + CSS / Nền tảng",
+    "outcomes": [
+      "Tạo trang HTML có tiêu đề, danh sách và liên kết có ý nghĩa",
+      "Dùng CSS để trình bày nội dung dễ đọc và phù hợp màn hình nhỏ",
+      "Kiểm tra bằng bàn phím, sửa một vấn đề và giải thích lựa chọn thiết kế"
+    ],
+    "requirements": [
+      "Máy tính có trình duyệt và trình soạn thảo văn bản",
+      "Không cần biết lập trình trước"
+    ],
+    "section": "Đọc, làm thử và tự kiểm tra",
+    "lessons": [
+      {
+        "title": "01 · Một trang có cấu trúc",
+        "file": "web-01.md"
+      },
+      {
+        "title": "02 · Liên kết và hình ảnh có mục đích",
+        "file": "web-02.md"
+      },
+      {
+        "title": "03 · CSS: làm nội dung dễ đọc",
+        "file": "web-03.md"
+      },
+      {
+        "title": "04 · Trang đọc được trên màn hình nhỏ",
+        "file": "web-04.md"
+      }
+    ],
+    "downloads": [
+      "web-foundations.html"
+    ],
+    "kind": "foundation"
+  }
+]

@@ -1,0 +1,54 @@
+# PY01 · Chạy chương trình đầu tiên
+
+Private recording draft · Vietnamese narration · planned, not recorded
+
+**Mục tiêu:** Chạy một file Python và thay đổi nội dung được in ra.
+
+**Chuẩn bị:** Đọc STUDENT-START.md; chạy được Python 3. Mở starter.py và solution.py ở hai tab; chỉ chiếu tab đang dạy. Làm trên bản sao my-work.py. Không sửa bản gốc khi ghi hình.
+
+**Thời lượng dự kiến:** 5–8 phút video; dành thêm 15–25 phút cho học sinh thực hành. Đây là ước lượng để diễn tập, không phải thời lượng công bố.
+
+## 1. Mở bài — nói bằng giọng của bạn (khoảng 30 giây)
+
+> Cuối bài này, bạn sẽ tự sửa và chạy một chương trình nhỏ. Mình sẽ bắt đầu bằng một lời chào. Sau này, chính những dòng chữ này sẽ hướng dẫn người dùng tủ sách của mình.
+
+Cho xem kết quả đích trong solution.py, sau đó quay về starter.py. Không cần đọc lời mở nguyên văn.
+
+## 2. Dạy trên màn hình (phần chính)
+
+1. Cho xem ba dòng kết quả của solution.py, rồi quay lại starter.py. Giải thích file là nơi lưu hướng dẫn, terminal là nơi xem kết quả.
+2. Chạy một dòng print. Chỉ rõ dấu ngoặc và dấu nháy bao quanh nội dung.
+3. Sửa lời chào, lưu file, chạy lại. Thêm một print cho điều bạn muốn tạo. Máy chạy từ trên xuống dưới.
+
+Sau mỗi thay đổi: hỏi “Bạn đoán lần chạy này sẽ hiện gì?”, dừng ngắn, chạy thử, giải thích sự khác nhau. Nói lý do trước khi đọc cú pháp.
+
+## 3. Một lỗi để cùng sửa (khoảng 1 phút)
+
+Trong bản làm thử, bỏ dấu nháy đóng để tạo SyntaxError. Đọc tên lỗi và dòng được chỉ ra; thêm dấu nháy rồi chạy lại. Không cần giải thích toàn bộ thông báo lỗi.
+
+## 4. Dừng video và tự làm
+
+> In ba dòng: lời chào, một thứ bạn muốn làm bằng Python, và một câu hỏi cho người dùng. Đổi thứ tự hai dòng rồi dự đoán kết quả.
+
+Hiện yêu cầu trên màn hình và nhắc người học tạm dừng. Gợi ý và lời giải nằm trong STUDENT.md và solution.py. Nếu quay lời giải, đặt sau điểm dừng hoặc tách thành đoạn tùy chọn.
+
+## 5. Kiểm tra và kết bài
+
+Ba dòng xuất hiện đúng thứ tự. Chạy lại sau khi sửa phải hiện nội dung mới.
+
+Hỏi: “Nếu sửa file mà kết quả không đổi, bạn sẽ kiểm tra hai điều gì?”
+
+Kết bài: “Nếu bạn giải thích được vì sao kết quả thay đổi, hãy thử một đầu vào khác trước khi sang bài tiếp theo.” Không hứa bài tiếp theo đã có video khi chưa xuất bản.
+
+## Ghi chú riêng trước khi quay
+
+- Cách mình sẽ nói lại lời mở: ____
+- Điểm mình chưa giải thích tự tin: ____
+- Chi tiết thật mình muốn kể, nếu có: ____
+- Timestamp cần quay lại: ____
+
+## English lesson summary
+
+Run a saved Python file, edit a printed message, and rerun it. The terminal shows output in statement order. Check that you saved and ran the correct file.
+
+Translate captions from the actual final take. This summary is not a timed subtitle track.

@@ -1,0 +1,377 @@
+@import "tailwindcss";
+@import "./studio.css";
+@import "./course-site.css";
+@import "./direct-enrollment.css";
+@import "./community.css";
+
+@theme static {
+  --color-background: #242520;
+  --color-foreground: #f3f1e8;
+  --color-card: #2c2e27;
+  --color-card-foreground: #f3f1e8;
+  --color-muted: #34362f;
+  --color-muted-foreground: #b5b9aa;
+  --color-muted-foreground-strong: #c9cbbf;
+  --color-border: #4b4e43;
+  --color-input: #858978;
+  --color-overlay: rgba(15, 17, 13, 0.75);
+  --color-skeleton: #3b3e34;
+  --color-primary: #ff9674;
+  --color-primary-strong: #ff9674;
+  --color-primary-hover: #ffad93;
+  --color-primary-foreground: #32231a;
+  --color-primary-text: #ff9674;
+  --color-primary-subtle: #41332b;
+  --color-primary-on-subtle: #ffb39a;
+  --color-secondary: #cadc85;
+  --color-accent: #cadc85;
+  --color-accent-hover: #d7e6a5;
+  --color-accent-foreground: #303923;
+  --color-accent-subtle: #35415b;
+  --color-on-accent-subtle: #e0e8fa;
+  --color-ring: #ff9674;
+  --color-ring-offset: #242520;
+  --color-success: #cadc85;
+  --color-success-subtle: #333d29;
+  --color-on-success-subtle: #d8eaa1;
+  --color-warning: #efc884;
+  --color-warning-subtle: #443a28;
+  --color-on-warning-subtle: #f4d49e;
+  --color-destructive: #f08482;
+  --color-destructive-hover: #f59b99;
+  --color-destructive-foreground: #251a1a;
+  --color-destructive-subtle: #472e2d;
+  --color-on-destructive-subtle: #ffc6bd;
+  --color-info: #b8c8eb;
+  --color-info-subtle: #35415b;
+  --color-on-info-subtle: #e0e8fa;
+
+  --font-heading: var(--font-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-code), "Cascadia Code", monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-xs--font-weight: 500;
+  --text-xs--letter-spacing: 0.01em;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.375rem;
+  --text-sm--font-weight: 400;
+  --text-base: 1rem;
+  --text-base--line-height: 1.625rem;
+  --text-base--font-weight: 400;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.875rem;
+  --text-lg--font-weight: 400;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-xl--font-weight: 600;
+  --text-xl--letter-spacing: -0.005em;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-2xl--font-weight: 600;
+  --text-2xl--letter-spacing: -0.01em;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.375rem;
+  --text-3xl--font-weight: 600;
+  --text-3xl--letter-spacing: -0.015em;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.75rem;
+  --text-4xl--font-weight: 700;
+  --text-4xl--letter-spacing: -0.02em;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.375rem;
+  --text-5xl--font-weight: 700;
+  --text-5xl--letter-spacing: -0.025em;
+
+  --spacing: 0.25rem;
+  --radius-sm: 4px;
+  --radius-md: 9px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  --container-page: 78rem;
+  --container-prose: 65ch;
+  --shadow-overlay: 0 8px 24px rgba(15, 23, 42, 0.12);
+  --shadow-modal: 0 16px 48px rgba(15, 23, 42, 0.2);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --size-icon-sm: 16px;
+  --size-icon-md: 20px;
+  --size-icon-lg: 24px;
+  --size-icon-xl: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  background: var(--color-background);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.625;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  text-wrap: balance;
+}
+
+/* In the base layer, so a control's own `text-sm` or `font-semibold` wins:
+   unlayered, this beat every utility and a <Button> rendered bigger and
+   lighter than the same `buttonClass` on a <Link>. */
+@layer base {
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* A visually hidden file input styled through its label: the label shows the
+   ring the input cannot (WCAG 2.4.7). */
+input.sr-only:focus-visible + label {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+::selection {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary-on-subtle);
+}
+
+.page-shell {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: calc(var(--spacing) * 4);
+}
+
+.auth-shell {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--spacing) * 6) calc(var(--spacing) * 4);
+}
+
+.auth-panel {
+  width: 100%;
+  max-width: calc(var(--spacing) * 100);
+  margin: auto;
+  padding-block: calc(var(--spacing) * 10);
+}
+
+.panel {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+}
+
+/* In the components layer, so a control's own utilities win: unlayered, its
+   min-height and width beat `min-h-40` on a textarea, `w-auto` and `min-h-11`
+   on the catalog sort, and the password field's `pr-12`. */
+@layer components {
+  .control {
+    width: 100%;
+    min-height: calc(var(--spacing) * 12);
+    border: 1px solid var(--color-input);
+    border-radius: var(--radius-md);
+    background: var(--color-card);
+    color: var(--color-card-foreground);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    transition: border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .control::placeholder {
+    color: var(--color-muted-foreground);
+    opacity: 1;
+  }
+
+  .control:hover:not(:disabled) {
+    border-color: var(--color-primary);
+  }
+
+  .control[aria-invalid="true"] {
+    border-color: var(--color-destructive);
+  }
+
+  .control:disabled {
+    cursor: not-allowed;
+    background: var(--color-muted);
+    color: var(--color-muted-foreground-strong);
+  }
+}
+
+.skeleton {
+  animation: skeleton-pulse 1.6s var(--ease-standard) infinite;
+  background: var(--color-skeleton);
+}
+
+dialog::backdrop {
+  background: var(--color-overlay);
+}
+
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (min-width: 48rem) {
+  .page-shell {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+}
+
+@media (min-width: 64rem) {
+  .page-shell {
+    padding-inline: calc(var(--spacing) * 8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Markdown output. Scoped here instead of a typography plugin: the allowlist
+   in src/lib/markdown.ts is short, so the rules it needs are short too. */
+/* One step under the page's own section titles (text-2xl), which a
+   description or lesson body sits beneath. */
+.prose-body :where(h2) {
+  margin-block: calc(var(--spacing) * 2) 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.prose-body :where(h3) {
+  margin-block: calc(var(--spacing) * 2) 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.prose-body :where(ul, ol) {
+  margin: 0;
+  padding-inline-start: calc(var(--spacing) * 5);
+  display: grid;
+  gap: calc(var(--spacing) * 1);
+}
+
+.prose-body :where(ul) {
+  list-style: disc;
+}
+
+.prose-body :where(ol) {
+  list-style: decimal;
+}
+
+.prose-body :where(p) {
+  margin: 0;
+}
+
+.prose-body :where(a) {
+  color: var(--color-primary-text);
+  text-decoration: underline;
+}
+
+.prose-body :where(strong) {
+  font-weight: var(--font-weight-semibold);
+}
+
+.prose-body :where(code) {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-muted);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.35em;
+}
+
+.prose-body :where(pre) {
+  overflow-x: auto;
+  padding: calc(var(--spacing) * 4);
+  border-radius: var(--radius-md);
+  background: var(--color-muted);
+}
+
+.prose-body :where(pre code) {
+  background: none;
+  padding: 0;
+}
+
+.prose-body :where(blockquote) {
+  margin: 0;
+  padding-inline-start: calc(var(--spacing) * 4);
+  border-inline-start: 3px solid var(--color-border);
+  color: var(--color-muted-foreground-strong);
+}
+
+.prose-body :where(table) {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose-body :where(th, td) {
+  border: 1px solid var(--color-border);
+  padding: calc(var(--spacing) * 2);
+  text-align: start;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+/* Admin table headers stick to the top of the page (UX_PLAN.md §7.3), so a
+   row control reached with Shift+Tab would scroll in underneath the 47px
+   header row. WCAG 2.2 SC 2.4.11: keep it clear. */
+tbody :where(a, button, input, select, textarea) {
+  scroll-margin-top: 3.5rem;
+}
