@@ -301,36 +301,49 @@
     "symbol": "shift",
     "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Biểu diễn thời gian rảnh, vai trò và số người cần trong mỗi ca",
-      "Xếp ca theo quy tắc minh bạch; chỉ ra ca thiếu người hoặc xung đột",
-      "Đổi ca có kiểm tra điều kiện và xuất lịch chia sẻ bằng mã người dùng"
+      "Kiểm tra thời gian rảnh và số ca tối đa của mỗi người",
+      "Viết bộ xếp ca có quy tắc xác định và báo ca thiếu người",
+      "Xuất báo cáo HTML, thử tình huống đổi lịch và giải thích giới hạn"
     ],
     "requirements": [
-      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
-      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+      "Máy tính có Python 3.10 trở lên; dùng thư viện chuẩn, không cần cài gói ngoài",
+      "Đã làm thử tủ sách miễn phí; biết biến, list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Lộ trình dự kiến",
-    "lessons": [],
+    "section": "Xây phiên bản đầu: dữ liệu, xử lý và báo cáo",
+    "lessons": [
+      {
+        "title": "01 · Chuẩn bị dữ liệu và kiểm tra đầu vào",
+        "file": "shifts-01.md"
+      },
+      {
+        "title": "02 · Viết logic xử lý và đối chiếu kết quả",
+        "file": "shifts-02.md"
+      },
+      {
+        "title": "03 · Tạo báo cáo và hoàn thiện phiên bản đầu",
+        "file": "shifts-03.md"
+      }
+    ],
     "downloads": [],
     "kind": "project",
     "priceVnd": 150000,
-    "availability": "planned",
+    "availability": "available",
     "publicTrial": false,
     "level": "INTERMEDIATE",
     "delivery": {
-      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
-      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+      "vi": "Đã mở đăng ký qua Zalo. Ba bài đọc có mã Python chạy được, dữ liệu mẫu, bài thực hành và bảng tự kiểm tra. Nội dung hiện học bằng bài đọc; video sẽ bổ sung sau.",
+      "en": "Enrollment is open through Zalo. Three written lessons include working Python code, sample data, exercises, and self-checks. This course currently uses written lessons; videos will be added later."
     },
     "deliverables": {
       "vi": [
-        "Biểu diễn thời gian rảnh, vai trò và số người cần trong mỗi ca",
-        "Xếp ca theo quy tắc minh bạch; chỉ ra ca thiếu người hoặc xung đột",
-        "Đổi ca có kiểm tra điều kiện và xuất lịch chia sẻ bằng mã người dùng"
+        "Kiểm tra thời gian rảnh và số ca tối đa của mỗi người",
+        "Viết bộ xếp ca có quy tắc xác định và báo ca thiếu người",
+        "Xuất báo cáo HTML, thử tình huống đổi lịch và giải thích giới hạn"
       ],
       "en": [
-        "A constraint-based shift allocator with explicit fairness rules",
-        "An explanation of unfilled slots and conflicting requirements",
-        "A validated swap workflow and anonymized schedule export"
+        "Validate volunteer availability and workload limits",
+        "Build a deterministic shift allocator that flags unfilled slots",
+        "Export an HTML schedule and test changes to availability"
       ]
     },
     "milestones": [
@@ -356,36 +369,49 @@
     "symbol": "csv",
     "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Nhập dữ liệu theo bữa, nhóm thực phẩm, số suất và khối lượng",
-      "Chuẩn hóa đơn vị, phát hiện dữ liệu thiếu và tính lượng thừa trên mỗi suất",
-      "Vẽ biểu đồ so sánh, ghi yếu tố gây nhiễu và xuất báo cáo có giới hạn rõ ràng"
+      "Kiểm tra dữ liệu số suất và lượng thức ăn thừa theo bữa",
+      "Tính gram trên mỗi suất và tỷ lệ toàn kỳ có trọng số",
+      "Xuất báo cáo HTML và thiết kế phép so sánh có giới hạn"
     ],
     "requirements": [
-      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
-      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+      "Máy tính có Python 3.10 trở lên; dùng thư viện chuẩn, không cần cài gói ngoài",
+      "Đã làm thử tủ sách miễn phí; biết biến, list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Lộ trình dự kiến",
-    "lessons": [],
+    "section": "Xây phiên bản đầu: dữ liệu, xử lý và báo cáo",
+    "lessons": [
+      {
+        "title": "01 · Chuẩn bị dữ liệu và kiểm tra đầu vào",
+        "file": "waste-project-01.md"
+      },
+      {
+        "title": "02 · Viết logic xử lý và đối chiếu kết quả",
+        "file": "waste-project-02.md"
+      },
+      {
+        "title": "03 · Tạo báo cáo và hoàn thiện phiên bản đầu",
+        "file": "waste-project-03.md"
+      }
+    ],
     "downloads": [],
     "kind": "project",
     "priceVnd": 150000,
-    "availability": "planned",
+    "availability": "available",
     "publicTrial": false,
     "level": "INTERMEDIATE",
     "delivery": {
-      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
-      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+      "vi": "Đã mở đăng ký qua Zalo. Ba bài đọc có mã Python chạy được, dữ liệu mẫu, bài thực hành và bảng tự kiểm tra. Nội dung hiện học bằng bài đọc; video sẽ bổ sung sau.",
+      "en": "Enrollment is open through Zalo. Three written lessons include working Python code, sample data, exercises, and self-checks. This course currently uses written lessons; videos will be added later."
     },
     "deliverables": {
       "vi": [
-        "Nhập dữ liệu theo bữa, nhóm thực phẩm, số suất và khối lượng",
-        "Chuẩn hóa đơn vị, phát hiện dữ liệu thiếu và tính lượng thừa trên mỗi suất",
-        "Vẽ biểu đồ so sánh, ghi yếu tố gây nhiễu và xuất báo cáo có giới hạn rõ ràng"
+        "Kiểm tra dữ liệu số suất và lượng thức ăn thừa theo bữa",
+        "Tính gram trên mỗi suất và tỷ lệ toàn kỳ có trọng số",
+        "Xuất báo cáo HTML và thiết kế phép so sánh có giới hạn"
       ],
       "en": [
-        "A validated meal log with consistent units",
-        "Per-meal and per-serving charts rather than misleading raw totals",
-        "A before-and-after report that states sample size and limitations"
+        "Validate meal counts and waste measurements",
+        "Calculate per-serving waste and a weighted overall result",
+        "Export an HTML report and explain comparison limits"
       ]
     },
     "milestones": [
@@ -411,36 +437,49 @@
     "symbol": "gear",
     "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Thiết kế cơ sở dữ liệu thiết bị, lượt đặt và trạng thái bảo trì",
-      "Ngăn đặt trùng giờ, kiểm tra bàn giao và xử lý lượt trả trễ",
-      "Làm dashboard bằng Streamlit, bộ kiểm thử và quy trình sao lưu/phục hồi"
+      "Đọc sổ thiết bị, kiểm tra mã và trạng thái mượn",
+      "Thống kê thiết bị sẵn có, đang mượn, bảo trì và quá hạn",
+      "Tạo báo cáo HTML và kiểm thử các trường hợp dữ liệu sai"
     ],
     "requirements": [
-      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
-      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+      "Máy tính có Python 3.10 trở lên; dùng thư viện chuẩn, không cần cài gói ngoài",
+      "Đã làm thử tủ sách miễn phí; biết biến, list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Lộ trình dự kiến",
-    "lessons": [],
+    "section": "Xây phiên bản đầu: dữ liệu, xử lý và báo cáo",
+    "lessons": [
+      {
+        "title": "01 · Chuẩn bị dữ liệu và kiểm tra đầu vào",
+        "file": "equipment-01.md"
+      },
+      {
+        "title": "02 · Viết logic xử lý và đối chiếu kết quả",
+        "file": "equipment-02.md"
+      },
+      {
+        "title": "03 · Tạo báo cáo và hoàn thiện phiên bản đầu",
+        "file": "equipment-03.md"
+      }
+    ],
     "downloads": [],
     "kind": "project",
     "priceVnd": 200000,
-    "availability": "planned",
+    "availability": "available",
     "publicTrial": false,
     "level": "INTERMEDIATE",
     "delivery": {
-      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
-      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+      "vi": "Đã mở đăng ký qua Zalo. Ba bài đọc có mã Python chạy được, dữ liệu mẫu, bài thực hành và bảng tự kiểm tra. Nội dung hiện học bằng bài đọc; video sẽ bổ sung sau.",
+      "en": "Enrollment is open through Zalo. Three written lessons include working Python code, sample data, exercises, and self-checks. This course currently uses written lessons; videos will be added later."
     },
     "deliverables": {
       "vi": [
-        "Thiết kế cơ sở dữ liệu thiết bị, lượt đặt và trạng thái bảo trì",
-        "Ngăn đặt trùng giờ, kiểm tra bàn giao và xử lý lượt trả trễ",
-        "Làm dashboard bằng Streamlit, bộ kiểm thử và quy trình sao lưu/phục hồi"
+        "Đọc sổ thiết bị, kiểm tra mã và trạng thái mượn",
+        "Thống kê thiết bị sẵn có, đang mượn, bảo trì và quá hạn",
+        "Tạo báo cáo HTML và kiểm thử các trường hợp dữ liệu sai"
       ],
       "en": [
-        "A Streamlit application with a SQLite data model",
-        "Reservation conflict checks and handover/return workflows",
-        "A maintenance dashboard, backup/restore procedure, and automated checks"
+        "Validate asset IDs, loan states and due dates",
+        "Summarize availability, loans, maintenance and overdue returns",
+        "Build an HTML inventory report and test invalid inputs"
       ]
     },
     "milestones": [
@@ -467,36 +506,49 @@
     "symbol": "stats",
     "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Chuẩn hóa câu trả lời, xử lý thiếu dữ liệu và loại thông tin nhận diện khỏi báo cáo",
-      "Thiết kế biểu đồ có mẫu số và số người trả lời; tránh so sánh nhóm quá nhỏ",
-      "Làm dashboard bộ lọc, xuất báo cáo HTML và viết kết luận có căn cứ"
+      "Kiểm tra mã phiếu, lựa chọn và dữ liệu khảo sát ẩn danh",
+      "Tính số phiếu và tỷ lệ với mẫu số chính xác",
+      "Xuất báo cáo HTML không lộ thông tin người trả lời"
     ],
     "requirements": [
-      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
-      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+      "Máy tính có Python 3.10 trở lên; dùng thư viện chuẩn, không cần cài gói ngoài",
+      "Đã làm thử tủ sách miễn phí; biết biến, list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Lộ trình dự kiến",
-    "lessons": [],
+    "section": "Xây phiên bản đầu: dữ liệu, xử lý và báo cáo",
+    "lessons": [
+      {
+        "title": "01 · Chuẩn bị dữ liệu và kiểm tra đầu vào",
+        "file": "survey-01.md"
+      },
+      {
+        "title": "02 · Viết logic xử lý và đối chiếu kết quả",
+        "file": "survey-02.md"
+      },
+      {
+        "title": "03 · Tạo báo cáo và hoàn thiện phiên bản đầu",
+        "file": "survey-03.md"
+      }
+    ],
     "downloads": [],
     "kind": "project",
     "priceVnd": 200000,
-    "availability": "planned",
+    "availability": "available",
     "publicTrial": false,
     "level": "INTERMEDIATE",
     "delivery": {
-      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
-      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+      "vi": "Đã mở đăng ký qua Zalo. Ba bài đọc có mã Python chạy được, dữ liệu mẫu, bài thực hành và bảng tự kiểm tra. Nội dung hiện học bằng bài đọc; video sẽ bổ sung sau.",
+      "en": "Enrollment is open through Zalo. Three written lessons include working Python code, sample data, exercises, and self-checks. This course currently uses written lessons; videos will be added later."
     },
     "deliverables": {
       "vi": [
-        "Chuẩn hóa câu trả lời, xử lý thiếu dữ liệu và loại thông tin nhận diện khỏi báo cáo",
-        "Thiết kế biểu đồ có mẫu số và số người trả lời; tránh so sánh nhóm quá nhỏ",
-        "Làm dashboard bộ lọc, xuất báo cáo HTML và viết kết luận có căn cứ"
+        "Kiểm tra mã phiếu, lựa chọn và dữ liệu khảo sát ẩn danh",
+        "Tính số phiếu và tỷ lệ với mẫu số chính xác",
+        "Xuất báo cáo HTML không lộ thông tin người trả lời"
       ],
       "en": [
-        "A reproducible cleaning pipeline for survey CSVs",
-        "A filterable dashboard with sample counts and privacy-aware group summaries",
-        "An HTML report with documented assumptions and test fixtures"
+        "Validate anonymous response IDs and allowed choices",
+        "Count valid responses and calculate percentages with explicit denominators",
+        "Export an HTML report without exposing respondent records"
       ]
     },
     "milestones": [
@@ -523,36 +575,49 @@
     "symbol": "air",
     "coverLabel": "Python / Dự án thực tế",
     "outcomes": [
-      "Nhập dữ liệu CSV từ các điểm đo, lưu nguồn, múi giờ và đơn vị",
-      "Kiểm tra khoảng trống, dữ liệu trùng và bất thường trước khi tính xu hướng",
-      "Xây dashboard theo điểm đo, xuất báo cáo và mô tả giới hạn của dữ liệu"
+      "Đọc CSV đo PM2.5, kiểm tra thời gian và bản ghi trùng",
+      "Tính trung bình theo ngày và điểm đo, hiển thị số quan sát",
+      "Xuất báo cáo HTML và ghi giới hạn của phép so sánh"
     ],
     "requirements": [
-      "Máy tính cài Python 3; đã thử hoàn thành dự án tủ sách miễn phí",
-      "Biết chạy file Python, sử dụng list, dictionary, hàm và vòng lặp"
+      "Máy tính có Python 3.10 trở lên; dùng thư viện chuẩn, không cần cài gói ngoài",
+      "Đã làm thử tủ sách miễn phí; biết biến, list, dictionary, hàm và vòng lặp"
     ],
-    "section": "Lộ trình dự kiến",
-    "lessons": [],
+    "section": "Xây phiên bản đầu: dữ liệu, xử lý và báo cáo",
+    "lessons": [
+      {
+        "title": "01 · Chuẩn bị dữ liệu và kiểm tra đầu vào",
+        "file": "air-01.md"
+      },
+      {
+        "title": "02 · Viết logic xử lý và đối chiếu kết quả",
+        "file": "air-02.md"
+      },
+      {
+        "title": "03 · Tạo báo cáo và hoàn thiện phiên bản đầu",
+        "file": "air-03.md"
+      }
+    ],
     "downloads": [],
     "kind": "project",
     "priceVnd": 200000,
-    "availability": "planned",
+    "availability": "available",
     "publicTrial": false,
     "level": "INTERMEDIATE",
     "delivery": {
-      "vi": "Dự án đang chuẩn bị. Các mốc bên dưới là phạm vi dự kiến; bài học và tài liệu sẽ được bổ sung trước khi mở đăng ký học.",
-      "en": "In preparation. The milestones below describe the planned scope; lessons and resources will be added before enrollment opens."
+      "vi": "Đã mở đăng ký qua Zalo. Ba bài đọc có mã Python chạy được, dữ liệu mẫu, bài thực hành và bảng tự kiểm tra. Nội dung hiện học bằng bài đọc; video sẽ bổ sung sau.",
+      "en": "Enrollment is open through Zalo. Three written lessons include working Python code, sample data, exercises, and self-checks. This course currently uses written lessons; videos will be added later."
     },
     "deliverables": {
       "vi": [
-        "Nhập dữ liệu CSV từ các điểm đo, lưu nguồn, múi giờ và đơn vị",
-        "Kiểm tra khoảng trống, dữ liệu trùng và bất thường trước khi tính xu hướng",
-        "Xây dashboard theo điểm đo, xuất báo cáo và mô tả giới hạn của dữ liệu"
+        "Đọc CSV đo PM2.5, kiểm tra thời gian và bản ghi trùng",
+        "Tính trung bình theo ngày và điểm đo, hiển thị số quan sát",
+        "Xuất báo cáo HTML và ghi giới hạn của phép so sánh"
       ],
       "en": [
-        "A multi-location measurement importer with provenance records",
-        "Data-quality flags and comparable time-series summaries",
-        "A Streamlit dashboard and exportable report with clearly stated limitations"
+        "Validate measurement CSVs, timestamps and duplicate observations",
+        "Calculate daily site averages with observation counts",
+        "Export an HTML report with clear comparison limits"
       ]
     },
     "milestones": [

@@ -209,10 +209,9 @@ export function CourseCard({ course }: { course: Course }) {
             {project
               ? project.publicTrial
                 ? text("Học thử miễn phí · 4 video", "Free trial · 4 videos")
-                : text(
-                    "Dự án Python · Đang chuẩn bị",
-                    "Python project · In preparation",
-                  )
+                : project.availability === "available"
+                  ? text("Đang nhận đăng ký · Bài đọc thực hành", "Enrollment open · Written project lessons")
+                  : text("Dự án Python · Sắp có", "Python project · Upcoming")
               : course.demoStats
                 ? text("Nội dung mẫu", "Sample content")
                 : (course.category?.name ?? text("Khóa học", "Course"))}

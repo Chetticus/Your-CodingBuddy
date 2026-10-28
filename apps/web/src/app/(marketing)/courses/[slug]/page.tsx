@@ -140,12 +140,12 @@ export default async function CoursePage({
                     value={
                       project.publicTrial
                         ? "DỰ ÁN HỌC THỬ MIỄN PHÍ"
-                        : "DỰ ÁN ĐANG CHUẨN BỊ"
+                        : project.availability === "available" ? "ĐANG NHẬN ĐĂNG KÝ" : "DỰ ÁN SẮP CÓ"
                     }
                     en={
                       project.publicTrial
                         ? "FREE TRIAL PROJECT"
-                        : "PROJECT IN PREPARATION"
+                        : project.availability === "available" ? "ENROLLMENT OPEN" : "UPCOMING PROJECT"
                     }
                   />
                 </p>

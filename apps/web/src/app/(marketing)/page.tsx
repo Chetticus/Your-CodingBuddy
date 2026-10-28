@@ -90,8 +90,8 @@ export default async function HomePage() {
         )}
         <p className="course-format-note">
           {t(
-            "Tủ sách chia sẻ: 4 video và bài thực hành miễn phí. Chín dự án tiếp theo đang chuẩn bị, học phí từ 100.000₫ đến 200.000₫.",
-            "Book sharing: four free videos with practice notes. Nine more projects are in preparation, priced from 100,000₫ to 200,000₫.",
+            "Tủ sách chia sẻ: 4 video và bài thực hành miễn phí. Năm dự án có bài đọc đã mở đăng ký; bốn dự án khác sắp có. Học phí từ 100.000₫ đến 200.000₫.",
+            "Book sharing: four free videos with practice notes. Five written project courses are open for enrollment; four more are upcoming. Fees range from 100,000₫ to 200,000₫.",
           )}
         </p>
       </section>

@@ -68,8 +68,8 @@ export default async function CoursesPage({
         </h1>
         <p>
           {t(
-            "Bắt đầu miễn phí với dự án tủ sách và bốn video hướng dẫn. Chọn hướng làm tiếp từ chín dự án Python đang chuẩn bị, với học phí 100.000₫, 150.000₫ hoặc 200.000₫.",
-            "Start free with four videos for the book-sharing project. Explore nine upcoming Python projects priced at 100,000₫, 150,000₫, or 200,000₫.",
+            "Bắt đầu miễn phí với dự án tủ sách và bốn video hướng dẫn. Chọn hướng làm tiếp từ các dự án Python có phí, với học phí 100.000₫, 150.000₫ hoặc 200.000₫.",
+            "Start free with four videos for the book-sharing project. Explore paid Python projects priced at 100,000₫, 150,000₫, or 200,000₫.",
           )}
         </p>
         <div className="catalog-hero-bottom">
@@ -167,8 +167,8 @@ export default async function CoursesPage({
           )}
           <p className="course-format-note">
             {t(
-              "Một dự án học thử miễn phí. Chín dự án có phí đang xây dựng nội dung; chưa mở đăng ký học.",
-              "One free trial project. Nine paid projects are in development; enrollment is not open yet.",
+              "Một dự án học thử miễn phí. Năm dự án có phí đã mở đăng ký qua Zalo; bốn dự án khác sắp có.",
+              "One free trial project. Five paid projects are open through Zalo; four more are upcoming.",
             )}
           </p>
         </div>

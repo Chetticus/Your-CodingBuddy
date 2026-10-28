@@ -126,8 +126,8 @@ export default async function BookTrialPage() {
         </h2>
         <p>
           {t(
-            "Chín dự án Python tiếp theo đang được chuẩn bị, với mức học phí từ 100.000₫ đến 200.000₫. Xem phạm vi dự kiến trước khi chọn hướng bạn muốn học tiếp.",
-            "Nine more Python projects are in preparation, priced from 100,000₫ to 200,000₫. Explore their planned scope to choose what you want to build next.",
+            "Khám phá chín dự án Python có phí từ 100.000₫ đến 200.000₫. Năm khóa có bài đọc đã mở đăng ký qua Zalo; bốn khóa khác sắp có.",
+            "Explore nine paid Python projects from 100,000₫ to 200,000₫. Five written courses are open through Zalo; four more are upcoming.",
           )}
         </p>
         <Link href="/courses" className="studio-button">

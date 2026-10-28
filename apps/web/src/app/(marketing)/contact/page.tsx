@@ -1,3 +1,5 @@
+import { EnrollmentContactCard } from "@/components/enrollment/contact-card";
+import { enrollmentContact } from "@/lib/direct-enrollment";
 import type { Metadata } from "next";
 import { BookOpen, MessageCircle, Users } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
@@ -67,6 +69,7 @@ export default async function ContactPage({
               "I’ll reply using the email address you leave in the form.",
             )}
           </p>
+          <EnrollmentContactCard contact={enrollmentContact} locale={locale} />
         </aside>
       </div>
     </div>

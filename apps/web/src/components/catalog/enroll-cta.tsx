@@ -83,8 +83,8 @@ export function EnrollCta({
         </Link>
         <p className="text-xs leading-relaxed text-muted-foreground">
           <UiText
-            value="Đang xây dựng nội dung. Chưa mở đăng ký học; học phí được niêm yết để bạn tham khảo."
-            en="Lessons are in preparation. Enrollment is not open yet; the listed fee is for planning."
+            value="Dự án sắp có. Nhắn Nam để hỏi lịch mở lớp và nội dung dự kiến."
+            en="Upcoming project. Ask Nam about the release date and planned scope."
           />
         </p>
       </div>

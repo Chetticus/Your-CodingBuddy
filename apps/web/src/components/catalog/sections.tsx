@@ -180,8 +180,8 @@ export async function FaqAccordion() {
         "Can I preview a course?",
       ),
       answer: text(
-        "Dự án tủ sách chia sẻ có bốn video và bài đọc miễn phí, không cần tài khoản. Chín dự án còn lại có phí và đang được xây dựng nội dung.",
-        "The book-sharing project has four free videos and written notes, with no account required. The other nine projects are paid and their lessons are in preparation.",
+        "Dự án tủ sách chia sẻ có bốn video và bài đọc miễn phí, không cần tài khoản. Năm khóa dự án có bài đọc đã mở đăng ký qua Zalo; bốn dự án khác sắp có.",
+        "The book-sharing project has four free videos and written notes, with no account required. Five written project courses are open for enrollment through Zalo; four more projects are upcoming.",
       ),
     },
     {

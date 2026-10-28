@@ -15,10 +15,10 @@ describe("project catalog access and readiness", () => {
       4,
     );
     expect(paid).toHaveLength(9);
+    expect(paid.filter((course) => course.availability === "available")).toHaveLength(5);
     for (const course of paid) {
       expect([100000, 150000, 200000]).toContain(course.priceVnd);
-      expect(course.availability).toBe("planned");
-      expect(course.lessons).toHaveLength(0);
+      expect(course.lessons).toHaveLength(course.availability === "available" ? 3 : 0);
       expect(course.milestones?.length).toBeGreaterThanOrEqual(3);
     }
   });
@@ -37,8 +37,17 @@ describe("project catalog access and readiness", () => {
     expect(html).not.toContain("/checkout");
   });
 
+  it("opens direct enrollment for each of the five written courses", () => {
+    for (const course of projectCourses.filter((item) => !item.publicTrial && item.availability === "available")) {
+      const html = renderToStaticMarkup(createElement(EnrollCta, {courseId: course.slug, slug: course.slug, priceVnd: course.priceVnd, archived: false}));
+      expect(html).toContain(`/checkout/${course.slug}`);
+      expect(html).toContain("Liên hệ đăng ký học");
+      expect(html).not.toContain("Lessons are in preparation");
+    }
+  });
+
   it("shows a project inquiry rather than selling unfinished lessons", () => {
-    const course = projectCourses.find((item) => item.priceVnd === 200000)!;
+    const course = projectCourses.find((item) => item.availability === "planned")!;
     const html = renderToStaticMarkup(
       createElement(EnrollCta, {
         courseId: "planned",
@@ -48,7 +57,7 @@ describe("project catalog access and readiness", () => {
       }),
     );
     expect(html).toContain("Hỏi Nam về dự án");
-    expect(html).toContain("Chưa mở đăng ký học");
+    expect(html).toContain("Dự án sắp có");
     expect(html).not.toContain("/learn/");
     expect(html).not.toContain("Liên hệ đăng ký học");
   });
