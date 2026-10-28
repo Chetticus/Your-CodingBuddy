@@ -13,7 +13,7 @@ Dự án tủ sách chia sẻ miễn phí tại `/trial/books`, có bốn video 
 
 Video nằm tại `apps/web/public/videos/books/`. Tệp `content/book-videos.json` ghi tên gốc, thời lượng và checksum để kiểm tra nguồn. Chạy `pnpm --filter api exec tsx prisma/seed-project-courses.ts` sau seed demo để áp dụng danh mục mới vào cơ sở dữ liệu review tại `127.0.0.1:55435/template1`. Lệnh này lưu trữ các khóa cũ, giữ lịch sử quyền học và tiến độ, và không chạy với production.
 
-Xem `design/redesign/CATALOG-2026-10-28.md` để đọc phạm vi và học phí từng dự án. Các kịch bản quay vẫn ở `content/recording-kit/`; đây là tài liệu soạn bài, không phải các khóa nền tảng còn được niêm yết.
+Xem `design/redesign/CATALOG-2026-10-28.md` để đọc phạm vi và học phí từng dự án. Tài liệu quay và kịch bản sản xuất được giữ riêng trên máy, không nằm trong repository website.
 
 ## Chạy local
 
