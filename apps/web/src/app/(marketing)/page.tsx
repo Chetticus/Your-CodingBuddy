@@ -47,16 +47,11 @@ export default async function HomePage() {
                 {t("Khám phá khóa học", "Explore courses")}{" "}
                 <ArrowRight size={18} aria-hidden="true" />
               </Link>
-              <Link href="/trial/books" className="inline-link">
+              <Link href="/workshop" className="inline-link">
                 {t("Học thử dự án tủ sách", "Try the free book project")}
               </Link>
             </div>
           </div>
-        </div>
-        <div className="hero-route">
-          <span>01 / {t("Quan sát một vấn đề", "Notice a problem")}</span>
-          <span>02 / {t("Học công cụ cần thiết", "Learn the tools")}</span>
-          <span>03 / {t("Làm thử và cải tiến", "Build and improve")}</span>
         </div>
       </section>
 
@@ -95,8 +90,8 @@ export default async function HomePage() {
         )}
         <p className="course-format-note">
           {t(
-            "Tủ sách chia sẻ: 4 video và bài thực hành miễn phí. Chín dự án tiếp theo đang chuẩn bị, học phí từ 300.000₫ đến 500.000₫.",
-            "Book sharing: four free videos with practice notes. Nine more projects are in preparation, priced from 300,000₫ to 500,000₫.",
+            "Tủ sách chia sẻ: 4 video và bài thực hành miễn phí. Chín dự án tiếp theo đang chuẩn bị, học phí từ 100.000₫ đến 200.000₫.",
+            "Book sharing: four free videos with practice notes. Nine more projects are in preparation, priced from 100,000₫ to 200,000₫.",
           )}
         </p>
       </section>

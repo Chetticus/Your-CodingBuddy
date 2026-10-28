@@ -1,133 +1,140 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Download } from "lucide-react";
-import { ProjectWorkshop } from "@/components/project-workshop";
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { ArrowLeft, ArrowRight, BookOpen, Download } from "lucide-react";
+import { Prose } from "@/components/catalog/sections";
 import { getLocale } from "@/lib/locale";
-import { translate } from "@/lib/translations";
+import { projectCourse } from "@/lib/project-courses";
 
 export const metadata: Metadata = {
-  title: "Bài thực hành mở / Open practice lesson",
+  title: "Tủ sách chia sẻ · Học thử miễn phí / Free book project",
   description:
-    "Tạo một thư viện tài liệu dễ tìm cho lớp mình. Một bài thực hành CodingBuddy với tìm kiếm, chủ đề và hướng dẫn.",
+    "Bốn video làm dự án tủ sách bằng Python. Miễn phí, không cần tài khoản.",
+  alternates: { canonical: "/workshop" },
 };
-export default async function WorkshopPage() {
+
+/** Explicitly public material. Paid lessons continue through the authenticated player. */
+export default async function BookTrialPage() {
+  const project = projectCourse("python-tu-sach-lop-minh")!;
   const locale = await getLocale();
-  const t = (vi: string, en?: string) => translate(locale, vi, en);
+  const t = (vi: string, en: string) => (locale === "vi" ? vi : en);
+  const notes = await Promise.all(
+    project.lessons.map((lesson) =>
+      readFile(
+        resolve(process.cwd(), "../../content/project-lessons", lesson.file),
+        "utf8",
+      ),
+    ),
+  );
   return (
-    <div className="page-shell workshop-page">
-      <Link href="/" className="back-link">
-        <ArrowLeft size={16} aria-hidden="true" />
-        {t("Về CodingBuddy", "Back to CodingBuddy")}
+    <div className="page-shell book-trial">
+      <Link href="/courses" className="inline-link">
+        <ArrowLeft size={17} aria-hidden="true" />
+        {t("Về các dự án", "Back to projects")}
       </Link>
-      <header className="workshop-page-heading">
-        <div>
-          <p className="section-label">
-            {t(
-              "Bài thực hành mở · Đọc và thử làm",
-              "Open practice lesson · Read and try",
-            )}
-          </p>
-          <h1>
-            {t(
-              "Làm một thư viện nhỏ\ncho lớp mình.",
-              "Build a little library\nfor your classroom.",
-            )}
-          </h1>
-        </div>
+      <header className="trial-intro">
+        <p className="section-label">
+          01 / {t("DỰ ÁN HỌC THỬ MIỄN PHÍ", "FREE TRIAL PROJECT")}
+        </p>
+        <h1>{t("Tủ sách của lớp mình.", "Your class, sharing books.")}</h1>
         <p>
           {t(
-            "Một người bạn muốn học về biến nhưng không biết tìm tài liệu ở đâu. Hãy làm cho việc tìm kiếm đó dễ hơn.",
-            "A classmate wants to learn about variables but can’t find the right note. Let’s make that search easier.",
+            "Cùng Nam làm một công cụ tìm sách, mượn/trả và lưu dữ liệu bằng Python. Bốn video, bài đọc và mã tham khảo — mở cho mọi người, không cần tài khoản.",
+            "Build a Python tool with Nam to find books, record loans and returns, and save your data. Four videos, written notes, and reference code — open to everyone, with no account required.",
           )}
         </p>
-      </header>
-      <ProjectWorkshop full />
-      <div className="lesson-guide" id="start">
-        <aside>
-          <p className="section-label">
-            {t("Cùng bắt đầu", "Let’s get started")}
-          </p>
-          <h2>
-            {t(
-              "Từ nhu cầu\nđến một lần thử.",
-              "From a need\nto a first attempt.",
-            )}
-          </h2>
-          <a
-            className="studio-button secondary"
-            href={`/downloads/resource-library-${locale}.html`}
-            download
-          >
-            <Download size={17} aria-hidden="true" />
-            {t("Tải mã nguồn", "Download the source")}
-          </a>
-          <p className="guide-note">
-            {t(
-              "Tệp HTML chạy ngay trong trình duyệt, không cần cài đặt thêm.",
-              "An HTML file that opens in your browser. No installation needed.",
-            )}
-          </p>
-        </aside>
-        <div className="guide-content">
-          <section>
-            <h3>
-              {t("1. Dùng thử như một người mới", "1. Try it as a new learner")}
-            </h3>
-            <p>
-              {t(
-                "Tìm “biến” hoặc “HTML”. Chọn một chủ đề. Thử một từ chưa có trong danh sách. Bạn có biết cần làm gì tiếp theo không?",
-                "Search for “variables” or “HTML”. Choose a topic. Try a word that isn’t in the list. Is it clear what you can do next?",
-              )}
-            </p>
-          </section>
-          <section>
-            <h3>
-              {t(
-                "2. Đọc cách chương trình tìm kiếm",
-                "2. Read how the search works",
-              )}
-            </h3>
-            <p>
-              {t(
-                "Ở tab “Cách lọc”, mỗi tài liệu được kiểm tra xem tiêu đề có chứa từ khóa hay không. Danh sách kết quả chỉ giữ lại những mục phù hợp. Đây là ý tưởng của filter trong JavaScript.",
-                "In “The filter” tab, each resource is checked to see whether its title contains the keyword. The results keep only matching items. This is the idea behind JavaScript’s filter method.",
-              )}
-            </p>
-          </section>
-          <section>
-            <h3>
-              {t(
-                "3. Thêm điều có ích cho một người bạn",
-                "3. Add something useful for a friend",
-              )}
-            </h3>
-            <p>
-              {t(
-                "Tải mã nguồn, mở bằng một trình soạn thảo và tìm danh sách resources. Thêm một tài liệu bạn thấy hữu ích. Lưu tệp, mở lại trên trình duyệt và thử tìm tài liệu vừa thêm.",
-                "Download the source, open it in a text editor, and find the resources list. Add a note you find useful. Save the file, reopen it in your browser, and try finding your new note.",
-              )}
-            </p>
-          </section>
-          <section className="guide-reflection">
-            <h3>
-              {t(
-                "Một câu hỏi trước khi kết thúc",
-                "A question before you finish",
-              )}
-            </h3>
-            <p>
-              {t(
-                "Nhờ một người bạn tìm một ghi chú mà không hướng dẫn họ trước. Họ gặp khó khăn ở đâu? Thay đổi một nhãn, một mô tả hoặc cách sắp xếp để giúp họ.",
-                "Ask a friend to find a note without explaining the interface first. Where do they get stuck? Change a label, description, or the organization to help them.",
-              )}
-            </p>
-          </section>
-          <Link href="/courses" className="inline-link">
-            {t("Xem tiếp lộ trình học", "Continue to the learning path")}{" "}
-            <ArrowRight size={17} aria-hidden="true" />
-          </Link>
+        <div className="trial-facts">
+          <span>{t("Miễn phí", "Free")}</span>
+          <span>4 {t("video", "videos")}</span>
+          <span>Python 3</span>
+          <span>
+            {t("Âm thanh & bài đọc: tiếng Việt", "Audio & notes: Vietnamese")}
+          </span>
         </div>
+        <a
+          href="/downloads/projects/book-sharing.py"
+          download
+          className="inline-link"
+        >
+          <Download size={17} aria-hidden="true" />
+          {t("Tải mã tham khảo", "Download reference code")}
+        </a>
+      </header>
+      <nav
+        aria-label={t("Bốn bài học", "Four lessons")}
+        className="trial-chapters"
+      >
+        {project.lessons.map((lesson, index) => (
+          <a href={`#lesson-${index + 1}`} key={lesson.title}>
+            <span>0{index + 1}</span>
+            {lesson.title.slice(5)}
+          </a>
+        ))}
+      </nav>
+      <div className="trial-lessons">
+        {project.lessons.map((lesson, index) => (
+          <section
+            id={`lesson-${index + 1}`}
+            key={lesson.title}
+            className="trial-lesson"
+            aria-labelledby={`lesson-title-${index + 1}`}
+          >
+            <header>
+              <p className="section-label">
+                {t("BÀI", "LESSON")} 0{index + 1}
+              </p>
+              <h2 id={`lesson-title-${index + 1}`}>{lesson.title.slice(5)}</h2>
+            </header>
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              aria-label={lesson.title}
+              src={lesson.video}
+            >
+              {t(
+                "Trình duyệt của bạn chưa hỗ trợ video này.",
+                "Your browser does not support this video.",
+              )}
+            </video>
+            <p className="trial-video-help">
+              {t(
+                "Dừng video để tự làm trước khi xem tiếp. Có thể chọn tốc độ phát trong trình đơn của trình phát. Video hiện chưa có phụ đề.",
+                "Pause to try each step yourself. Playback speed is available in the player menu. Captions are not available yet.",
+              )}
+            </p>
+            <details className="panel trial-notes">
+              <summary>
+                <BookOpen size={18} aria-hidden="true" />
+                {t("Bài đọc & thực hành", "Written notes & practice")}
+              </summary>
+              <Prose source={notes[index]} />
+            </details>
+          </section>
+        ))}
       </div>
+      <section className="trial-next">
+        <p className="section-label">
+          {t("SAU TỦ SÁCH", "AFTER THE BOOK PROJECT")}
+        </p>
+        <h2>
+          {t(
+            "Một vấn đề khác. Một dự án mới.",
+            "Another problem. A new project.",
+          )}
+        </h2>
+        <p>
+          {t(
+            "Chín dự án Python tiếp theo đang được chuẩn bị, với mức học phí từ 100.000₫ đến 200.000₫. Xem phạm vi dự kiến trước khi chọn hướng bạn muốn học tiếp.",
+            "Nine more Python projects are in preparation, priced from 100,000₫ to 200,000₫. Explore their planned scope to choose what you want to build next.",
+          )}
+        </p>
+        <Link href="/courses" className="studio-button">
+          {t("Khám phá các dự án", "Explore projects")}
+          <ArrowRight size={18} aria-hidden="true" />
+        </Link>
+      </section>
     </div>
   );
 }

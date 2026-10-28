@@ -36,13 +36,14 @@ const GUEST_LINKS = [
   ["Lộ trình học", "/courses"],
   ["Bài thực hành", "/workshop"],
   ["Giới thiệu", "/about"],
-  ["Cộng đồng", "/community"],
+
 ] as const;
 
 const LEARNER_LINKS = [
   ["Khóa học", "/courses"],
   ["Khóa học của tôi", LEARNER_HOME],
-  ["Cộng đồng", "/community"],
+  ["Bài thực hành", "/workshop"],
+
   ...(CHECKOUT_ENABLED ? ([["Đơn hàng", "/account/orders"]] as const) : []),
 ] as const;
 

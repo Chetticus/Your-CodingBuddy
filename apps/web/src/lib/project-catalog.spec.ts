@@ -16,7 +16,7 @@ describe("project catalog access and readiness", () => {
     );
     expect(paid).toHaveLength(9);
     for (const course of paid) {
-      expect([300000, 400000, 500000]).toContain(course.priceVnd);
+      expect([100000, 150000, 200000]).toContain(course.priceVnd);
       expect(course.availability).toBe("planned");
       expect(course.lessons).toHaveLength(0);
       expect(course.milestones?.length).toBeGreaterThanOrEqual(3);
@@ -32,13 +32,13 @@ describe("project catalog access and readiness", () => {
         archived: false,
       }),
     );
-    expect(html).toContain('href="/trial/books"');
+    expect(html).toContain('href="/workshop"');
     expect(html).not.toContain("/login");
     expect(html).not.toContain("/checkout");
   });
 
   it("shows a project inquiry rather than selling unfinished lessons", () => {
-    const course = projectCourses.find((item) => item.priceVnd === 500000)!;
+    const course = projectCourses.find((item) => item.priceVnd === 200000)!;
     const html = renderToStaticMarkup(
       createElement(EnrollCta, {
         courseId: "planned",

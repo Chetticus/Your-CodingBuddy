@@ -52,7 +52,7 @@ function LessonRow({
     <li>
       {trial ? (
         <Link
-          href={`/trial/books#lesson-${lesson.position}`}
+          href={`/workshop#lesson-${lesson.position}`}
           className={linkClass}
         >
           {body}

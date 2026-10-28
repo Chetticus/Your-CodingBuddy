@@ -9,7 +9,7 @@ Website học Python qua các dự án thực tế dành cho học sinh 10–15 
 
 ## Danh mục dự án hiện tại
 
-Dự án tủ sách chia sẻ miễn phí tại `/trial/books`, có bốn video của Hải Nam, bài đọc và mã nguồn. Không cần đăng nhập. Chín dự án Python tiếp theo được niêm yết ở mức 300.000₫, 400.000₫ hoặc 500.000₫ và ghi rõ đang chuẩn bị; chưa mở đăng ký học. Danh mục và phạm vi nằm trong `apps/web/src/content/project-courses.json`.
+Dự án tủ sách chia sẻ miễn phí tại `/trial/books`, có bốn video của Hải Nam, bài đọc và mã nguồn. Không cần đăng nhập. Chín dự án Python tiếp theo được niêm yết ở mức 100.000₫, 150.000₫ hoặc 200.000₫ và ghi rõ đang chuẩn bị; chưa mở đăng ký học. Danh mục và phạm vi nằm trong `apps/web/src/content/project-courses.json`.
 
 Video nằm tại `apps/web/public/videos/books/`. Tệp `content/book-videos.json` ghi tên gốc, thời lượng và checksum để kiểm tra nguồn. Chạy `pnpm --filter api exec tsx prisma/seed-project-courses.ts` sau seed demo để áp dụng danh mục mới vào cơ sở dữ liệu review tại `127.0.0.1:55435/template1`. Lệnh này lưu trữ các khóa cũ, giữ lịch sử quyền học và tiến độ, và không chạy với production.
 
@@ -134,3 +134,6 @@ curl -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_
   -H "Authorization: Bearer $CLOUDFLARE_STREAM_API_TOKEN" -H "Content-Type: application/json" \
   --data '{"uid":"<UID>","requireSignedURLs":true}'
 ```
+
+
+Latest navigation revision: Community and its page/assets were removed. The practice tab (`/workshop`) now shows only the free four-video book-sharing tracker. The three-step strip beneath the homepage hero was removed. Paid project tiers: 100,000₫, 150,000₫, 200,000₫.

@@ -6,7 +6,6 @@ export const english: Record<string, string> = {
   "Lộ trình học": "Learning path",
   "Khóa học của tôi": "My learning",
   "Giới thiệu": "Our story",
-  "Cộng đồng": "Community",
   "Liên hệ": "Get in touch",
   "Đăng nhập": "Log in",
   "Đăng ký": "Sign up",

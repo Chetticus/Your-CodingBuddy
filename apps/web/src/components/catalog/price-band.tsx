@@ -35,7 +35,7 @@ export function PriceBand({ defaultIndex }: { defaultIndex: number }) {
           />
           {text(
             price.label,
-            ["All prices", "₫300,000", "₫400,000", "₫500,000", "Free courses"][
+            ["All prices", "₫100,000", "₫150,000", "₫200,000", "Free courses"][
               value
             ],
           )}

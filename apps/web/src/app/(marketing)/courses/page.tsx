@@ -68,8 +68,8 @@ export default async function CoursesPage({
         </h1>
         <p>
           {t(
-            "Bắt đầu miễn phí với dự án tủ sách và bốn video hướng dẫn. Chọn hướng làm tiếp từ chín dự án Python đang chuẩn bị, với học phí 300.000₫, 400.000₫ hoặc 500.000₫.",
-            "Start free with four videos for the book-sharing project. Explore nine upcoming Python projects priced at 300,000₫, 400,000₫, or 500,000₫.",
+            "Bắt đầu miễn phí với dự án tủ sách và bốn video hướng dẫn. Chọn hướng làm tiếp từ chín dự án Python đang chuẩn bị, với học phí 100.000₫, 150.000₫ hoặc 200.000₫.",
+            "Start free with four videos for the book-sharing project. Explore nine upcoming Python projects priced at 100,000₫, 150,000₫, or 200,000₫.",
           )}
         </p>
         <div className="catalog-hero-bottom">
@@ -79,7 +79,7 @@ export default async function CoursesPage({
               "Python · Useful tools · Real-world data",
             )}
           </span>
-          <Link href="/trial/books" className="inline-link">
+          <Link href="/workshop" className="inline-link">
             {t(
               "Bắt đầu với tủ sách miễn phí",
               "Start with the free book project",
@@ -156,7 +156,7 @@ export default async function CoursesPage({
                     )}
               </p>
               <Link
-                href={courses ? "/courses" : "/trial/books"}
+                href={courses ? "/courses" : "/workshop"}
                 className="studio-button"
               >
                 {courses

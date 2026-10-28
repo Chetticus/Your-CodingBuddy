@@ -59,7 +59,7 @@ export function EnrollCta({
     return (
       <div className="grid gap-3">
         <Link
-          href="/trial/books"
+          href="/workshop"
           className={buttonClass("accent", "lg", "w-full")}
         >
           <UiText value="Học thử miễn phí ngay" en="Start the free trial" />

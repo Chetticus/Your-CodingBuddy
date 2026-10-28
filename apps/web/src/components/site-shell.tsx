@@ -100,7 +100,7 @@ async function Footer() {
               ["Điều khoản sử dụng", "/terms"],
               ["Chính sách bảo mật", "/privacy"],
               ["Liên hệ", "/contact"],
-              ["Cộng đồng", "/community"],
+
             ].map(([label, href]) => (
               <Link key={href} href={href}>
                 {text(label)}
