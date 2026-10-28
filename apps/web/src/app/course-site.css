@@ -1,4 +1,11 @@
 /* Exact dark Maker's Notebook palette from the approved inline concept. */
+.about-note .about-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
 .brand-ribbon {
   background: #f3f1e8;
   color: #242520;

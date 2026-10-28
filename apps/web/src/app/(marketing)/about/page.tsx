@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { getLocale } from "@/lib/locale";
 import { translate } from "@/lib/translations";
@@ -32,9 +33,15 @@ export default async function AboutPage() {
           </Link>
         </div>
         <aside className="about-note">
-          <span className="tutor-monogram" aria-label="Hải Nam">
-            hn<span>.</span>
-          </span>
+          <Image
+            src="/images/hai-nam.jpg"
+            alt={t("Nguyễn Hải Nam bên robot của mình", "Nguyễn Hải Nam beside his robot")}
+            width={1365}
+            height={2048}
+            sizes="(max-width: 900px) 100vw, 420px"
+            priority
+            className="about-portrait"
+          />
           <h2>
             {t(
               "Hiểu vì sao nó chạy.\nTự tin thử cách khác.",
